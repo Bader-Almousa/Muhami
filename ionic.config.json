@@ -1,0 +1,7 @@
+{
+  "name": "Muhami",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
