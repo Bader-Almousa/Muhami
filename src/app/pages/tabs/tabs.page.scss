@@ -1,0 +1,23 @@
+.Font_theme{
+    font-family: 'MuhamiApp_Font';
+}
+
+ion-tab-bar{
+    --border: none;
+    --background: #112549;
+    margin: 16px 20px;
+    border-radius: 14px;
+    box-shadow: 
+    0px 3px 6px 0px rgba(0, 0, 0, 0.04),
+    0px 1px 3px 0px rgba(0, 0, 0, 0.02);
+    color: black;
+}
+//thism is tab color
+ion-tab-button{
+    color: rgb(255, 255, 255);
+    font-size: 11px;
+}
+ion-tab-button:hover{
+    color: #d8b050;
+    font-size: 13px;
+}
