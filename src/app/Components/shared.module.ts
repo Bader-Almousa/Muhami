@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
-import { InputComponent } from './input/input.component';
 import { ButtonComponent } from './button/button.component';
 
 @NgModule({
-  declarations: [InputComponent, ButtonComponent],
+  declarations: [ButtonComponent],
   imports: [CommonModule, IonicModule],
-  exports: [InputComponent, ButtonComponent],
+  exports: [ButtonComponent],
 })
 export class SharedModule {}

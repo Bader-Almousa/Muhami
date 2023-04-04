@@ -1,4 +1,4 @@
-<ion-header >
+<ion-header>
   <ion-toolbar class="Font_theme" dir="rtl">
 
     <ion-buttons slot="start">
@@ -11,19 +11,26 @@
 </ion-header>
 
 
-<ion-content dir="rtl" class="Font_theme">
-<br>
-  <app-input label="الإسم الأول"></app-input>
-  <app-input label="الاسم الأخير"></app-input>
-  <app-input label="رقم الجوال"></app-input>
-  <app-input label="البريد الالكتروني"></app-input>
-  <app-input label="المملكة العربية السعودية" readonly="true"></app-input>
 
+<ion-content>
 
-  <app-button label="انشاء الحساب"></app-button>
+  <div class="Font_theme" dir="rtl">
 
-  <ion-label class="createLawAcc" routerLink="/">اذا كنت محامي وترغب بالإنضمام إلى تطبق محامي يرجى التسجيل من هنا</ion-label>
+    <br>
+    <br>
 
-  
+    <ion-input class="Font_theme" class="inputDez" placeholder="الاسم الأول"></ion-input>
+
+    <br>
+    <br>
+
+    <app-button label="انشاء الحساب" (click)="addUser()"></app-button>
+
+    <br>
+
+    <div class="createLawAcc">
+      <ion-label routerLink="/">اذا كنت محامي وترغب بالإنضمام إلى تطبق محامي يرجى التسجيل من هنا</ion-label>
+    </div>
+  </div>
 
 </ion-content>
