@@ -17,11 +17,32 @@
   <div class="Font_theme" dir="rtl">
 
     <br>
-    <br>
 
-    <ion-input class="Font_theme" class="inputDez" placeholder="الاسم الأول"></ion-input>
+    <div class="inputBox">
+      <ion-label>الاسم الاول</ion-label>
+      <ion-input [(ngModel)] ="firstName"></ion-input>
+    </div>
 
-    <br>
+    <div class="inputBox">
+      <ion-label>الاسم الثاني</ion-label>
+      <ion-input [(ngModel)] ="lastName"></ion-input>
+    </div>
+
+    <div class="inputBox">
+      <ion-label>رقم الجوال</ion-label>
+      <ion-input [(ngModel)] ="phoneNumber"></ion-input>
+    </div>
+
+    <div class="inputBox">
+      <ion-label>البريد الإلكتروني</ion-label>
+      <ion-input [(ngModel)] ="email"></ion-input>
+    </div>
+
+    <div class="inputBox">
+      <ion-label>كلمة المرور</ion-label>
+      <ion-input [(ngModel)] ="password"></ion-input>
+    </div>
+    
     <br>
 
     <app-button label="انشاء الحساب" (click)="addUser()"></app-button>
