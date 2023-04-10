@@ -10,6 +10,26 @@
     width: 65%;
 }
 
+.inputBox ion-label{
+    margin-right: 2.5rem;    
+}
+
+.inputBox ion-input{
+    font-family: 'MuhamiApp_Font';
+    width: 80%;
+    border: 2px solid #9e9e9e;
+    border-radius: 16px;
+    margin-right: 9%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.inputBox ion-input:hover{
+    transition: .2s;
+    border: 2px solid #474747;
+    height: 45px;
+}
+
 .forgetPass{
     font-size: small;
     margin-right: 30px;
