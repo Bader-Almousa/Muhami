@@ -21,7 +21,6 @@ b{
 ion-card{
     box-shadow: -1px 11px 13px -6px rgb(87,86,86);
     border-radius: 10px !important;
-    margin: 5px 0;
     background-color: rgb(255, 255, 255);
     border: solid #afafaf;
     ion-card-content{
@@ -29,6 +28,7 @@ ion-card{
             font-weight: bold;
             text-shadow: 1px 1px 1px var(--ion-color-medium);
             letter-spacing: 0.5px;
+            
         }
     }
 }
