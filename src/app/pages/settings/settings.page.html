@@ -1,9 +1,58 @@
-<ion-header>
+<ion-header >
   <ion-toolbar>
-    <ion-title>Settings</ion-title>
+    <ion-row class="ion-margin-horizontal ion-margin-top">
+      <b class="Font_theme">الإعدادات</b>
+    </ion-row>
+    
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+
+<ion-content dir="rtl" class="background">
+
+  <ion-card >
+    <ion-list lines="full">
+      <ion-item routerLink="/about-us">
+        <ion-icon name="id-card"></ion-icon>
+        <ion-label class="Font_theme">من نحن</ion-label>
+      </ion-item>
+      <ion-item routerLink="/tabs/connect-us">
+        <ion-icon name="chatbubble"></ion-icon>
+        <ion-label class="Font_theme">تواصل معنا</ion-label>
+      </ion-item>
+      <ion-item routerLink="/notifications">
+        <ion-icon name="notifications"></ion-icon>
+        <ion-label class="Font_theme">التنبيهات</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+  <ion-card >
+    <ion-list lines="full">
+      <ion-item routerLink="home">
+        <ion-icon name="person"></ion-icon>
+        <ion-label class="Font_theme">تعديل الحساب</ion-label>
+      </ion-item>
+      <ion-item routerLink="home">
+        <ion-icon name="lock-closed"></ion-icon>
+        <ion-label class="Font_theme">تغيير كلمة المرور</ion-label>
+      </ion-item>
+      <ion-item routerLink="home">
+        <ion-icon name="log-out-outline"></ion-icon>
+        <ion-label class="Font_theme">تسجيل الخروج</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+
+  <ion-card >
+    <ion-list lines="full">
+      <ion-item routerLink="home">
+        <ion-icon name="share-social"></ion-icon>
+        <ion-label class="Font_theme">مشاركة التطبيق</ion-label>
+      </ion-item>
+    </ion-list>  
+  </ion-card>    
+
 
 </ion-content>

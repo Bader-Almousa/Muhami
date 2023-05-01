@@ -7,35 +7,99 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
+    width: 35%;
 }
+.center-logo{
+    height: 35%;
+    display: block;
+    margin-left: 10%;
+    margin-right: 20%;
+    width: 35%;
+}
+
+.icon{
+   margin-right: 55px;
+   margin-left: 10px; 
+}
+
 ion-content.background{
     --ion-background-color: rgba(232, 232, 232, 0.283);
 }
 
 
+
 b{
   font-size: large; 
-  color: #000000b2; 
+  color: #000000de; 
+}
+
+.first-title{
+    padding-right: 75px;
+    padding-top: 10px;
+    font-size: 25px;
+}
+.first-content{
+    font-size: 13px;
+    padding-right: 12%;
+}
+
+
+.second-title{
+    padding-right: 66px;
+    padding-top: 10px;
+    font-size: 25px;
+}
+.second-content{
+    font-size: 13px;
+    padding-right: 5.5%;
+}
+
+
+.third-title{
+    padding-right: 90px;
+    padding-top: 10px;
+    font-size: 25px;
+}
+.third-content{
+    font-size: 13px;
+    padding-right: 6%;
+}
+
+div{
+    justify-content: start;
+    display: inline-flex;
+    margin-top: 10px;
 }
 ion-card{
-    box-shadow: -1px 11px 13px -6px rgb(87,86,86);
+    box-shadow: -1px 11px 13px -6px rgb(99, 99, 99);
     border-radius: 10px !important;
     background-color: rgb(255, 255, 255);
-    border: solid #afafaf;
-    ion-card-content{
-        ion-lable{
-            font-weight: bold;
-            text-shadow: 1px 1px 1px var(--ion-color-medium);
-            letter-spacing: 0.5px;
-            
-        }
+    border: solid 1px #afafaff0;
+    margin: 15px 15px;
+    ion-card-header{
+        padding: 5px 0;
     }
+    // ion-card-title{
+    //     padding-right: 75px;
+    //     padding-top: 10px;
+    //     font-size: 25px;
+    // }
+    ion-img{
+        width: 20%;
+        height: 20%;
+        margin-top: 0;
+    }
+    ion-card-content{
+        padding-top: 5px;
+        padding-bottom: 8px;
+    }
+    
 }
-.title{
-    font-weight: bold;
-}
-.sorting{
-    margin-right: 18px;
-    font-weight: bold;
-}
+
+// .title{
+//     font-weight: bold;
+// }
+// .sorting{
+//     margin-right: 18px;
+//     font-weight: bold;
+// }
