@@ -1,21 +1,10 @@
 <?php
-
-
-require 'config.php';
-
-$query = "SELECT * FROM user";
-
-if($is_query_run = mysqli_query($con, $query)){
-    $userData = [];
-    while($query_executed = mysqli_fetch_assoc($is_query_run)){
-        $userData[] = $query_executed;
-    }
-
-}else{
-    echo "Error In Execution!";
+include "config.php";
+$data = array();
+$q = mysqli_query($conn, "SELECT * FROM `user`");
+while ($row = mysqli_fetch_object($q)) {
+    $data[] = $row;
 }
-
-echo json_encode($userData);
-
-
+echo json_encode($data);
+echo mysqli_error($conn);
 ?>
