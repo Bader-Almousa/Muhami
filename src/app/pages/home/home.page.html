@@ -1,9 +1,9 @@
 
 
-<ion-content dir="rtl" class="background">
+<ion-content dir="rtl" class="background" >
 
   <ion-row class="ion-margin-horizontal ion-margin-top">
-    <ion-img src=".\assets\img\FinallogoGold.png" class="logo"></ion-img>
+    <ion-img class="center" src=".\assets\img\FinallogoGold.png"  horizontal="center" vertical="center"></ion-img>
   </ion-row>
 
 
@@ -16,7 +16,7 @@
   <ion-col *ngFor="let item of Services">
     <ion-card class="ion-text-center" [routerLink]="item?.page">
       <ion-card-header>
-        <div align="center">
+        <div>
           <ion-thumbnail>
             <img [src]="item?.src">
           </ion-thumbnail>

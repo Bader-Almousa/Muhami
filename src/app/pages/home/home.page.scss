@@ -1,10 +1,19 @@
+.Font_theme{
+    font-family: 'MuhamiApp_Font';
+}
+
+.center{
+    height: 35%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
 ion-content.background{
     --ion-background-color: rgba(232, 232, 232, 0.283);
 }
-.logo{
-    width: 50%;
-    
-}
+
+
 b{
   font-size: large; 
   color: #000000b2; 
