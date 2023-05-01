@@ -1,43 +1,20 @@
+.Font_theme{
+    font-family: 'MuhamiApp_Font';
+
+}
 
 b{
     margin-top: 12px;
     margin-bottom: 15px;
     font-size: 30px;
 }
+
 ion-label{
-    color: rgba(0, 0, 0, 0.758);
-
-}
-ion-icon{
-    margin-left: 10px;
-    color:rgba(0, 0, 0, 0.758);
+    margin-right: 13px;
+    font-family: 'MuhamiApp_Font';
 }
 
-.container{
-    padding: 6px 20px;
-    color: #000000;
-    ion-item{
-        --background: rgba(44, 37, 37, 0.059);
-        padding: 0;
-        margin: 14px 0;
-        --border-radius:14px;
-        color: #000000;
-        font-weight: 600;
-
-        ion-lable{
-            padding: 10px 0;
-
-           
-        }
-    }
-}
-.h4{
-    font-weight: 650;
-    font-size: 28px;
-}
-.h6{
-    color: rgba(0, 0, 0, 0.796);
-    font-weight: 650;
-    font-size: 15px;
+ion-card{
+    border: solid 1px #afafaf;
 }
 
