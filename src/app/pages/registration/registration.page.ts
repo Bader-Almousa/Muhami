@@ -10,9 +10,10 @@ export class RegistrationPage implements OnInit {
 
   firstName: any;
   lastName: any;
+  phoneNumber: any;
   email: any;
   password: any;
-
+  
   constructor(public _apiService: ApiService) { }
   
 
@@ -20,6 +21,7 @@ export class RegistrationPage implements OnInit {
     let data = {
       firstName: this.firstName,
       lastName: this.lastName,
+      phoneNumber: this.phoneNumber,
       email: this.email,
       password: this.password,
     }
@@ -36,6 +38,4 @@ export class RegistrationPage implements OnInit {
   ngOnInit() {
     
   }
-  
-  
-}
+  }

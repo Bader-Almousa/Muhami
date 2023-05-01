@@ -4,12 +4,14 @@ include "config.php";
 $input = file_get_contents('php://input');
 $data = json_decode($input, true);
 $message = array();
+
 $firstName = $data['firstName'];
 $lastName = $data['lastName'];
+$phoneNumber = $data['phoneNumber'];
 $email = $data['email'];
 $password = $data['password'];
 
-$q = mysqli_query($conn, "INSERT INTO `users` (`firstName`, `lastName`, `email`, `password`) VALUES ('$firstName','$lastName', '$email', '$password')");
+$q = mysqli_query($conn, "INSERT INTO `users` (`firstName`, `lastName`, `phoneNumber`, `email`, `password`) VALUES ('$firstName','$lastName','$phoneNumber','$email','$password')");
 if ($q) {
     http_response_code(201);
     $message['status'] = "Success";
