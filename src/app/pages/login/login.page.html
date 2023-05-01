@@ -10,20 +10,20 @@
 
   <div class="inputBox">
     <ion-label>البريد الإلكتروني</ion-label>
-    <ion-input></ion-input>
+    <ion-input [(ngModel)] ="email"></ion-input>
   </div>
   
   <br>
 
   <div class="inputBox">
     <ion-label>كلمة المرور</ion-label>
-    <ion-input></ion-input>
+    <ion-input [(ngModel)] ="password"></ion-input>
   </div>
 
   <ion-label class="forgetPass" routerLink="/forget-pass">نسيت كلمة المرور؟</ion-label>
   <br><br>
 
-  <app-button label="تسجيل الدخول"></app-button>
+  <app-button (click)="login()" label="تسجيل الدخول"></app-button>
   <br>
 
   <ion-label class="createAcc" routerLink="/registration">ليس لديك حساب ؟ انشئ حساب جديد</ion-label>

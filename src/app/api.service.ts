@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +9,8 @@ import { HttpClient, HttpHeaders} from '@angular/common/http';
 export class ApiService {
 
   headers: HttpHeaders;
+
+  private baseUrl = 'http://localhost/Projects/Muhami/Backend/login.php'; // تغيير عنوان URL إلى عنوان موقع PHP الخاص بك
 
   constructor(public http: HttpClient) {
 
@@ -20,4 +24,9 @@ export class ApiService {
   addUser(data: any){
     return this.http.post('http://localhost/Projects/Muhami/Backend/create.php',data);
   }
+
+  login(logininfo: any ){
+    return this.http.post('http://localhost/Projects/Muhami/Backend/login.php',logininfo);
+  }
+
 }

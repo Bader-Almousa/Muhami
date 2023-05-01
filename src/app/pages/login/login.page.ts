@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ApiService } from 'src/app/api.service';
+import { HttpClient } from '@angular/common/http';
+import { Router, RouterLink } from '@angular/router';
+import { TabsPage } from '../tabs/tabs.page';
 
 @Component({
   selector: 'app-login',
@@ -8,10 +11,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginPage implements OnInit {
 
-  constructor() { }
+  email: any;
+  password: any;
 
-  ngOnInit() {
+  constructor(public _apiService: ApiService, private router: Router) {}
+
+  login() {
+
+    let logininfo = {
+      email: this.email,
+      password: this.password
+    }
+
+    this._apiService.login(logininfo)
+    .subscribe({
+      next: (res) => console.log(res),
+      error: (err) => console.log(err),
+      complete: () => this.router.navigate(['/tabs/home'])
+    });
   }
 
+
+    ngOnInit() {
+    }
+  
 }
-    
