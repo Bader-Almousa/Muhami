@@ -1,85 +1,29 @@
-
-
-<ion-content  class="background" >
-  
-
-    
-
-  
-
-
-  
-    
-    
-  
+<ion-header>
   <div dir="ltr">
-    <ion-icon routerLink="/notifications" class="icon" name="notifications-outline" size="large" color="warning" ></ion-icon>
+    <ion-icon routerLink="/notifications" class="icon" name="notifications" size="large"  ></ion-icon>
     <ion-img class="center-logo" src=".\assets\img\FinallogoGold.png"  horizontal="center" vertical="center"></ion-img>
   </div>
 
+  <ion-row class="ion-margin-horizontal ion-margin-top">
+    <b class="Font_theme first-b">مرحبا بك في محامي</b>
+    <p class="Font_theme first-advisory">ما هو نوع استشارتك القانونية <br><b class="second-advisory">التي تود طلبها؟</b></p>
+    
+     
+    
+  </ion-row>
+  
+  <ion-icon class="center-icon"  name="caret-down-sharp"></ion-icon>
+  
+    
+</ion-header>
 
-<ion-row class="ion-margin-horizontal ion-margin-top">
-  <b class="Font_theme">هل تبحث عن</b>
-</ion-row>
+<ion-content  class="background" >
+  
+  
+ 
 
+  
+  <app-home-ui></app-home-ui>
 
-
-<ion-card routerLink="/settings">
-  <ion-card-header>
-    <ion-img class="center" src="../assets/img/LegalServices.png"></ion-img>
-    <ion-card-title class="Font_theme first-title" >الخدمات القانونية</ion-card-title>
-  </ion-card-header>
-
-  <ion-card-content class="Font_theme first-content">
-    قدم طلبك واستقبل أفضل العروض من المحامين
-  </ion-card-content>
-</ion-card>
-
-<ion-card routerLink="home">
-  <ion-card-header>
-    <ion-img class="center" src="../assets/img/Advisorys.png"></ion-img>
-    <ion-card-title class="Font_theme second-title">الاستشارات القانونية</ion-card-title>
-  </ion-card-header>
-
-  <ion-card-content class="Font_theme second-content">
-    لطلب استشارة قانونية وطرح الاسئلة في موضوع معين
-  </ion-card-content>
-</ion-card>
-
-<ion-card>
-  <ion-card-header routerLink="home">
-    <ion-img class="center" src="../assets/img/Contracts.png"></ion-img>
-    <ion-card-title class="Font_theme third-title" >مراجعة العقود</ion-card-title>
-  </ion-card-header>
-
-  <ion-card-content class="Font_theme first-content third-content">
-    قم بإرسال عقدك للحصول على مراجعة وتدقيق قانوني
-  </ion-card-content>
-</ion-card>
-
-<!-- <ion-row class="ion-margin-horizontal">
-  <ion-col *ngFor="let item of Services">
-    <ion-card class="ion-text-center" [routerLink]="item?.page">
-      <ion-card-header>
-        <div align="center">
-          <ion-thumbnail>
-            <img [src]="item?.src">
-          </ion-thumbnail>
-        </div>
-      </ion-card-header>
-      <ion-card-content>
-        <ion-label class="Font_theme"  color="dark">{{item?.name}}</ion-label>
-      </ion-card-content>
-    </ion-card>
-  </ion-col>
-</ion-row>
-
-
-<p class="sorting">
- الترتيب حسب :
-</p> -->
-
-
-
-
+  
 </ion-content>
