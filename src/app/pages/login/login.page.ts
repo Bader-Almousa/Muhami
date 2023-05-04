@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/api.service';
 import { HttpClient } from '@angular/common/http';
-import { Router, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 import { TabsPage } from '../tabs/tabs.page';
 
 @Component({
