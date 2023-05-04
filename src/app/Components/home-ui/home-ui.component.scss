@@ -1,24 +1,49 @@
+ion-grid {
+    --ion-grid-padding: 20px;
+  
+    --ion-grid-padding-xs: 0px;
+    --ion-grid-padding-sm: 20px;
+    --ion-grid-padding-md: 20px;
+    --ion-grid-padding-lg: 20px;
+    --ion-grid-padding-xl: 20px;
+  
+    --ion-grid-column-padding: 30px;
+  
+    --ion-grid-column-padding-xs: 50px;
+    --ion-grid-column-padding-sm: 30px;
+    --ion-grid-column-padding-md: 30px;
+    --ion-grid-column-padding-lg: 30px;
+    --ion-grid-column-padding-xl: 30px;
+  }
+
+  .imgs{
+    width: 90%;
+    
+  }
+  
+  ion-col {
+    height: min-content;
+    border-bottom: solid 0.1px #0000004f;
+    color: #070404;
+    text-align: center;
+    
+  }
+
+  
+
+  .border-left{
+    border-left: solid 0.1px #0000004f;
+  }
+
+
+
+
+
+  
+
 .Font_theme{
     font-family: 'MuhamiApp_Font';
 }
-
-.first-advisory{
-    
-    margin-right: 60px;
-}
-
-.second-advisory{
-    margin-top: 0;
-    margin-right: 50px;
-}
-
-.first-b{
-    font-size: large; 
-    color: #000000f9; 
-    margin-right: 80px;
-    margin-bottom: 0;
-    font-weight: bold;
-  }
 
 .center{
     height: 35%;
@@ -26,15 +51,6 @@
     margin-left: auto;
     margin-right: auto;
     width: 35%;
-}
-.center-icon{
-    
-    height: 15%;
-    margin-top: 0;
-    margin-right: 176px;
-    width: 6%;
-    color: #112549;
-    
 }
 .center-logo{
     height: 35%;
@@ -47,7 +63,6 @@
 .icon{
    margin-right: 55px;
    margin-left: 10px; 
-   color: #112549;
 }
 
 ion-content.background{
@@ -56,15 +71,30 @@ ion-content.background{
 
 
 
-b{
-  font-size: large; 
-  color: #000000de; 
+
+
+p{
+    color: #000000ce;
+    margin-top: 0;
 }
+
+
+.custom-row {
+    border: 3px solid #007bff; /* تحديد سمك الخط ولونه */
+  }
+
+
+  ion-row {
+    border-color: #000000; /* تغيير لون الخط إلى اللون الأحمر */
+    border-width: 7px; /* تغيير سمك الخط إلى 2 بكسل */
+  }
+
+
 
 .first-title{
     padding-right: 75px;
     padding-top: 10px;
-    font-size: 25px;
+    font-size: 23px;
 }
 .first-content{
     font-size: 13px;
@@ -75,7 +105,7 @@ b{
 .second-title{
     padding-right: 66px;
     padding-top: 10px;
-    font-size: 25px;
+    font-size: 23px;
 }
 .second-content{
     font-size: 13px;
@@ -86,7 +116,7 @@ b{
 .third-title{
     padding-right: 90px;
     padding-top: 10px;
-    font-size: 25px;
+    font-size: 23px;
 }
 .third-content{
     font-size: 13px;
@@ -113,8 +143,8 @@ ion-card{
     //     font-size: 25px;
     // }
     ion-img{
-        width: 20%;
-        height: 20%;
+        width: 17%;
+        height: 17%;
         margin-top: 0;
     }
     ion-card-content{
