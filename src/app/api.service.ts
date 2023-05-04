@@ -25,6 +25,10 @@ export class ApiService {
     return this.http.post('http://localhost/Projects/Muhami/Backend/create.php',data);
   }
 
+  addLawer(data: any){
+    return this.http.post('http://localhost/Projects/Muhami/Backend/createLawyer.php',data);
+  }
+
   login(logininfo: any ){
     return this.http.post('http://localhost/Projects/Muhami/Backend/login.php',logininfo);
   }

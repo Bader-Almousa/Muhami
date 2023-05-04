@@ -2,7 +2,6 @@
     font-family: 'MuhamiApp_Font';
 }
 
-
 .inputBox ion-label{
     margin-right: 3rem;    
 }
@@ -24,7 +23,17 @@
 }
 
 .createLawAcc{
-    font-size: 16px;
-    text-align: center;
+    font-size: 12px;
+    padding-right: 2%;
 }
 
+.centercheck{
+    display: block;
+    margin-right: 10%;
+    margin-top: 5%;
+}
+
+.checkdez{
+    float: right;
+    --size: 1.4rem;
+}

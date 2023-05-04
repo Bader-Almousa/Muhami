@@ -42,16 +42,27 @@
       <ion-label>كلمة المرور</ion-label>
       <ion-input [(ngModel)] ="password"></ion-input>
     </div>
+
+    <div class="centercheck">
+      <ion-checkbox class="checkdez" [(ngModel)]="isChecked"></ion-checkbox>
+      <ion-label class="createLawAcc">اضغط هنا للتسجيل كمحامي</ion-label>
+      </div>
+
+      <br>
+
+    <div class="inputBox" *ngIf="isChecked">
+      <ion-label>رقم ترخيص مزاولة مهنة المحاماة</ion-label>
+      <ion-input [(ngModel)] ="license"></ion-input>
+    </div>
+    
     
     <br>
 
-    <app-button label="انشاء الحساب" (click)="addUser()"></app-button>
+    <app-button label="انشاء الحساب" (click)="login()"></app-button>
 
     <br>
 
-    <div class="createLawAcc">
-      <ion-label routerLink="/">اذا كنت محامي وترغب بالإنضمام إلى تطبق محامي يرجى التسجيل من هنا</ion-label>
-    </div>
+    
   </div>
 
 </ion-content>
