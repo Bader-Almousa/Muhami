@@ -11,7 +11,7 @@ export class HomeUIComponent  implements OnInit {
   constructor(private router: Router) { }
 
   nav(){
-    this.router.navigate(['soon']);
+    this.router.navigate(['lawyers']);
   }
 
   ngOnInit() {}
