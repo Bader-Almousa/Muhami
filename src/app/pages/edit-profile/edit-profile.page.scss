@@ -1,0 +1,54 @@
+.Font_theme{
+    font-family: 'MuhamiApp_Font';
+
+}
+
+b{
+    margin-top: 12px;
+    margin-bottom: 15px;
+    font-size: 30px;
+}
+
+
+.inputBox ion-label{
+    margin-right: 3rem;    
+}
+
+.inputBox ion-input{
+    font-family: 'MuhamiApp_Font';
+    width: 80%;
+    border: 2px solid #9e9e9e;
+    border-radius: 16px;
+    margin-right: 9%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.inputBox ion-input:hover{
+    transition: .2s;
+    border: 2px solid #474747;
+    height: 45px;
+}
+
+.createLawAcc{
+    font-size: 12px;
+    padding-right: 2%;
+}
+
+.centercheck{
+    display: block;
+    margin-right: 10%;
+    margin-top: 5%;
+}
+
+.checkdez{
+    float: right;
+    --size: 1.4rem;
+}
+
+.circular-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}

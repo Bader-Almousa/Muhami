@@ -50,7 +50,11 @@ const routes: Routes = [
   {
     path: 'lawyers',
     loadChildren: () => import('./pages/lawyers/lawyers.module').then( m => m.LawyersPageModule)
+  },  {
+    path: 'edit-profile',
+    loadChildren: () => import('./pages/edit-profile/edit-profile.module').then( m => m.EditProfilePageModule)
   },
+
 ];
 
 @NgModule({
