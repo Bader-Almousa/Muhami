@@ -3,6 +3,18 @@
 
 }
 
+.center-logo{
+    
+        height: 15%;
+        display: block;
+        margin-left: 38%;
+        margin-right: 20%;
+        margin-top: 13px;
+        margin-bottom: 0;
+        width: 35%;
+    
+}
+
 b{
     margin-top: 12px;
     margin-bottom: 15px;
@@ -52,3 +64,15 @@ b{
   border-radius: 50%;
   object-fit: cover;
 }
+
+
+.option{
+    font-family: 'MuhamiApp_Font';
+    width: 80%;
+    border: 2px solid #9e9e9e;
+    
+    margin-right: 9%;
+    margin-top: 6%;
+    margin-bottom: 2%;
+}
+

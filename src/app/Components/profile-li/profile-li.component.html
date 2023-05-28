@@ -1,8 +1,10 @@
-
-<ion-img class="circular-image"
+<ion-avatar class="center-logo">
+  <ion-img class="circular-image "
 src="https://docs-demo.ionic.io/assets/madison.jpg"
-alt="The Wisconsin State Capitol building in Madison, WI at night"
-></ion-img>
+alt="The Wisconsin State Capitol building in Madison, WI at night">
+</ion-img>
+</ion-avatar>
+
 
 <div class="Font_theme" dir="rtl">
 
@@ -14,7 +16,7 @@ alt="The Wisconsin State Capitol building in Madison, WI at night"
   </div>
 
   <div class="inputBox">
-    <ion-label>الاسم الثاني</ion-label>
+    <ion-label>الاسم الأخير</ion-label>
     <ion-input ></ion-input>
   </div>
 
@@ -37,19 +39,52 @@ alt="The Wisconsin State Capitol building in Madison, WI at night"
   </div> 
 
 
-  <div >
-    <ion-list>
+  <div class="inputBox" >
+    <ion-label>عدد سنوات الخبرة</ion-label>
+    <ion-input ></ion-input>
+  </div> 
+
+
+  
+  <div class="option">
       <ion-item>
-        <ion-select aria-label="المؤهل العلمي" interface="popover" placeholder="المؤهل العلمي">
+        <ion-select class="Font_theme" aria-label="المؤهل العلمي" interface="popover" placeholder="المؤهل العلمي">
           <ion-select-option value="ماجستير">ماجستير</ion-select-option>
           <ion-select-option value="بكالوريس">بكالوريس</ion-select-option>
         </ion-select>
       </ion-item>
-    </ion-list>
   </div>
+
   
+  <div class="option ">
+    
+      <ion-item >
+        <ion-select class="Font_theme" aria-label="التخصص الأكاديمي" interface="popover" placeholder="التخصص الأكاديمي">
+          <ion-select-option value="قانون">قانون</ion-select-option>
+          <ion-select-option value="شريعة">شريعة</ion-select-option>
+        </ion-select>
+      </ion-item>
+    
+  </div>
+
+  <div class="option ">
+    
+    <ion-item >
+      <ion-select class="Font_theme" aria-label="الأتعاب المالية" interface="popover" placeholder="الأتعاب المالية">
+        <ion-select-option value="150">150</ion-select-option>
+        <ion-select-option value="300">300</ion-select-option>
+        <ion-select-option value="500">500</ion-select-option>
+      </ion-select>
+    </ion-item>
   
+</div>
+  
+ 
+ 
+
   <br>
+
+  <app-button label="حفظ"></app-button>
 
 
   
