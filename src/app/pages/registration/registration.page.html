@@ -20,27 +20,27 @@
 
     <div class="inputBox">
       <ion-label>الاسم الاول</ion-label>
-      <ion-input [(ngModel)] ="firstName"></ion-input>
+      <ion-input [(ngModel)] ="info.firstName"></ion-input>
     </div>
 
     <div class="inputBox">
       <ion-label>الاسم الثاني</ion-label>
-      <ion-input [(ngModel)] ="lastName"></ion-input>
+      <ion-input [(ngModel)] ="info.lastName"></ion-input>
     </div>
 
     <div class="inputBox">
       <ion-label>رقم الجوال</ion-label>
-      <ion-input [(ngModel)] ="phoneNumber"></ion-input>
+      <ion-input [(ngModel)] ="info.phoneNumber"></ion-input>
     </div>
 
     <div class="inputBox">
       <ion-label>البريد الإلكتروني</ion-label>
-      <ion-input [(ngModel)] ="email"></ion-input>
+      <ion-input [(ngModel)] ="info.email"></ion-input>
     </div>
 
     <div class="inputBox">
       <ion-label>كلمة المرور</ion-label>
-      <ion-input [(ngModel)] ="password"></ion-input>
+      <ion-input [(ngModel)] ="info.password"></ion-input>
     </div>
 
     <div class="centercheck">
@@ -52,13 +52,13 @@
 
     <div class="inputBox" *ngIf="isChecked">
       <ion-label>رقم ترخيص مزاولة مهنة المحاماة</ion-label>
-      <ion-input [(ngModel)] ="license"></ion-input>
+      <ion-input [(ngModel)] ="info.license"></ion-input>
     </div>
     
     
     <br>
 
-    <app-button label="انشاء الحساب" (click)="login()"></app-button>
+    <app-button label="انشاء الحساب" (click)="register()"></app-button>
 
     <br>
 

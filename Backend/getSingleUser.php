@@ -1,10 +1,11 @@
 <?php
 
 include "config.php";
+include "registration.php";
 
 $data = array();
-$email = $_GET['email'];
-$q = mysqli_query($conn, "SELECT * FROM `users` WHERE `email` = $email");
+
+$q = mysqli_query($conn, "SELECT * FROM users WHERE id = $id");
 
 while($row = mysqli_fetch_object($q)){
     $data[] = $row;

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from 'src/app/api.service';
+import { HttpClient } from '@angular/common/http';
+import { AlertController, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-registration',
@@ -8,16 +9,20 @@ import { ApiService } from 'src/app/api.service';
 })
 export class RegistrationPage implements OnInit {
 
-  firstName: any;
-  lastName: any;
-  phoneNumber: any;
-  email: any;
-  password: any;
-  license: any;
+  info = {
+  firstName: '',
+  lastName: '',
+  phoneNumber: '',
+  email: '',
+  password: '',
+  license: ''
+  }
 
   isChecked: any;
   
-  constructor(public _apiService: ApiService) { }
+  constructor(private http: HttpClient, 
+    public alertController: AlertController, 
+    public navCtrl: NavController) { }
 
   onCheckboxChange(event: any) {
     if (!event.detail.checked) {
@@ -25,46 +30,67 @@ export class RegistrationPage implements OnInit {
     }
   }
 
-
-  login(){
+  register(){
 
     if(this.isChecked == false){
-      let data = {
-        firstName: this.firstName,
-        lastName: this.lastName,
-        phoneNumber: this.phoneNumber,
-        email: this.email,
-        password: this.password,
+      const formData = new FormData();
+      formData.append('firstName', this.info.firstName);
+      formData.append('lastName', this.info.lastName);
+      formData.append('phoneNumber', this.info.phoneNumber);
+      formData.append('email', this.info.email);
+      formData.append('password', this.info.password);
+
+    this.http.post('http://localhost/Projects/Muhami/Backend/registration.php', formData).subscribe(
+      (response) => {
+        console.log(response);
+
+    // إنشاء وعرض رسالة تنبيه باستخدام اسم المستخدم
+    const alertMessage = 'هلا ' + this.info.firstName + ' احفظ حقك واعرف اللي لك وعليك واستشر استشاراتك القانونية الان';
+    this.presentAlert(alertMessage);
+
+    // تحويل المستخدم إلى صفحة أخرى وتمرير الـ id المستخدم
+    this.navCtrl.navigateForward('/tabs/home');
+      },
+      (error) => {
+        console.log(error);
+      }
+    ); 
+    }
+    else {
+      const formData = new FormData();
+      formData.append('firstName', this.info.firstName);
+      formData.append('lastName', this.info.lastName);
+      formData.append('phoneNumber', this.info.phoneNumber);
+      formData.append('email', this.info.email);
+      formData.append('password', this.info.password);
+      formData.append('license', this.info.license);
+
+      this.http.post('http://localhost/Projects/Muhami/Backend/registration.php', formData).subscribe(
+      (response) => {
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
       }
 
-    this._apiService.addUser(data)
-    .subscribe({
-      next: (res) => console.log(res),
-      error: (err) => console.log(err),
-      complete: () => console.log("Complete")
-    });
-    }else {
-      let data = {
-        firstName: this.firstName,
-        lastName: this.lastName,
-        phoneNumber: this.phoneNumber,
-        email: this.email,
-        password: this.password,
-        license: this.license
-      }
-
-    this._apiService.addLawer(data)
-    .subscribe({
-      next: (res) => console.log(res),
-      error: (err) => console.log(err),
-      complete: () => console.log("Complete")
-    });
     }
 
-  }
+    async presentAlert(mess: any) {
+      const alert = await this.alertController.create({
+        message: mess,
+        buttons: ['حسنًا']
+      });
 
+      await alert.present();  
+    }
 
-  ngOnInit() {
+    ngOnInit() {
     
-  }
+    }
+
 }
+
+
+  
