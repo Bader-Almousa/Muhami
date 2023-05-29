@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-profile-ui',
@@ -17,7 +18,19 @@ export class ProfileUiComponent  implements OnInit {
 
   isChecked: any;
   photo = '.\assets\img\FinallogoGold.png';
-  constructor() { }
+  
+
+  constructor(private loadingCtrl: LoadingController) {}
+
+  async showLoading() {
+    const loading = await this.loadingCtrl.create({
+      message: 'جاري الحفظ',
+      duration: 1000,
+      spinner: 'circles'
+    });
+
+    loading.present();
+  }
 
   ngOnInit() {}
 

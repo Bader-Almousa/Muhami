@@ -1,27 +1,88 @@
-<ion-header >
-  <ion-toolbar>
-    <ion-row class="ion-margin-horizontal ion-margin-top">
-      <b class="Font_theme">الطلبات</b>
-    </ion-row>
-    
-  </ion-toolbar>
+
+
+<ion-header>
+  <ion-row class="ion-margin-horizontal ion-margin-top">
+    <b class="Font_theme">الطلبات</b>
+  </ion-row>
 </ion-header>
 
-<ion-content>
+<ion-content class="Font_theme">
+  <ion-segment class="Font_theme" [(ngModel)]="segment">
+    <ion-segment-button value="waiting">
+      انتظار
+    </ion-segment-button>
+    <ion-segment-button value="active">
+      نشطة
+    </ion-segment-button>
+    <ion-segment-button value="finished">
+      منتهية
+    </ion-segment-button>
+  </ion-segment>
+
+  <ng-container *ngIf="segment === 'waiting'">
+    
+
+    <ion-list class="Font_theme">
+      <ion-item *ngFor="let order of waitingOrders">
+        <ion-label class="Font_theme">
+          <h2>{{ order.sender }}</h2>
+          <p>{{ order.date | date: 'short' }}</p>
+          <p>{{ order.type }}</p>
+        </ion-label>
+        <ion-buttons  slot="end">
+          <ion-button class="Font_theme" color="success" (click)="acceptOrder(order)">
+            قبول
+          </ion-button>
+          <ion-button class="Font_theme" color="danger" (click)="rejectOrder(order)">
+            رفض
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+    </ion-list>
 
 
-  <!-- <ion-card routerLink="/settings">
-    <ion-card-header>
-      <ion-img class="center" src="../assets/img/LegalServices.png"></ion-img>
-      <ion-card-title class="Font_theme first-title" >طلبات الخدمات القانونية</ion-card-title>
-    </ion-card-header>
-  </ion-card>
+  </ng-container>
 
-  <ion-card class="custom-card" routerLink="/settings">
-    <ion-card-header>
-      <ion-img class="center" src="../assets/img/LegalServices.png"></ion-img>
-      <ion-card-title class="Font_theme first-title" >طلبات الخدمات القانونية</ion-card-title>
-    </ion-card-header>
-  </ion-card> -->
+  <ng-container *ngIf="segment === 'active'">
+   
+    <ion-list class="Font_theme">
+      <ion-item *ngFor="let order of activeOrders">
+        <ion-label class="Font_theme">
+          <h2>{{ order.sender}}</h2>
+          <p>{{ order.date | date: 'short' }}</p>
+          <p>{{ order.type }}</p>
+        </ion-label>
+        <ion-textarea class="Font_theme" placeholder="أضف ردك هنا" [(ngModel)]="order.response"></ion-textarea>
+        <ion-buttons slot="end">
+          <ion-button class="Font_theme" color="primary" (click)="finishOrder(order)">
+            إنهاء
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+    </ion-list>
 
+  </ng-container>
+
+  <ng-container *ngIf="segment === 'finished'">
+   
+    <ion-list class="Font_theme">
+      <ion-item *ngFor="let order of finishedOrders">
+        <ion-label class="Font_theme">
+          <h2>{{ order.sender }}</h2>
+          <p>{{ order.date | date: 'short' }}</p>
+          <p>{{ order.type }}</p>
+        </ion-label>
+        <ion-buttons slot="end">
+          <ion-button class="Font_theme" color="medium" disabled>
+            منتهية
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+    </ion-list>
+
+  </ng-container>
 </ion-content>
+
+
+
+ 
