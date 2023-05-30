@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoadingController } from '@ionic/angular';
 
+
 @Component({
   selector: 'app-profile-ui',
   templateUrl: './profile-ui.component.html',
@@ -9,7 +10,7 @@ import { LoadingController } from '@ionic/angular';
 export class ProfileUiComponent  implements OnInit {
 
   
-  firstName: any;
+  firstName= 'amin' ;
   lastName: any;
   phoneNumber: any;
   email: any;
