@@ -12,22 +12,22 @@ alt="The Wisconsin State Capitol building in Madison, WI at night">
 
   <div class="inputBox">
     <ion-label>الاسم الاول</ion-label>
-    <ion-input [(ngModel)]="firstName"></ion-input>
+    <ion-input [(ngModel)]="user.firstName"></ion-input>
   </div>
 
   <div class="inputBox">
     <ion-label>الاسم الأخير</ion-label>
-    <ion-input ></ion-input>
+    <ion-input [(ngModel)]="user.lastName"></ion-input>
   </div>
 
   <div class="inputBox">
     <ion-label>رقم الجوال</ion-label>
-    <ion-input ></ion-input>
+    <ion-input [(ngModel)]="user.phoneNumber"></ion-input>
   </div>
 
   <div class="inputBox">
     <ion-label>البريد الإلكتروني</ion-label>
-    <ion-input></ion-input>
+    <ion-input [(ngModel)]="user.email"></ion-input>
   </div>
 
 

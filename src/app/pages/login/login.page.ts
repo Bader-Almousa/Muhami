@@ -29,6 +29,7 @@ export class LoginPage implements OnInit {
           localStorage.setItem('firstName', response.firstName);
           localStorage.setItem('lastName', response.lastName);
           localStorage.setItem('phoneNumber', response.phoneNumber);
+          localStorage.setItem('email', response.email);
           this.router.navigate(['/tabs/home']);
         } else {
           // Handle unsuccessful login

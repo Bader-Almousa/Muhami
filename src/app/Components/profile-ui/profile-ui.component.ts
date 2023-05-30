@@ -10,12 +10,12 @@ import { LoadingController } from '@ionic/angular';
 export class ProfileUiComponent  implements OnInit {
 
   
-  firstName= 'amin' ;
-  lastName: any;
-  phoneNumber: any;
-  email: any;
-  password: any;
-  license: any;
+  user = {
+    firstName: '',
+    lastName: '',
+    phoneNumber: '',
+    email: ''
+  };
 
   isChecked: any;
   photo = '.\assets\img\FinallogoGold.png';
@@ -33,6 +33,15 @@ export class ProfileUiComponent  implements OnInit {
     loading.present();
   }
 
-  ngOnInit() {}
-
+  ngOnInit() {
+    const firstName = localStorage.getItem('firstName');
+    const lastName = localStorage.getItem('lastName');
+    const phoneNumber = localStorage.getItem('phoneNumber');
+    const email = localStorage.getItem('email');
+  
+    this.user.firstName = firstName ? firstName : '';
+    this.user.lastName = lastName ? lastName : '';
+    this.user.phoneNumber = phoneNumber ? phoneNumber : '';
+    this.user.email = email ? email : '';
+  }
 }

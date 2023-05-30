@@ -22,7 +22,8 @@ if ($user) {
         'message' => 'تم تسجيل الدخول بنجاح',
         'firstName' => $user['firstName'],
         'lastName' => $user['lastName'],
-        'phoneNumber' => $user['phoneNumber']
+        'phoneNumber' => $user['phoneNumber'],
+        'email' => $user['email']
     ));
 } else {
     echo json_encode(array('success' => false, 'message' => 'البريد الإلكتروني أو كلمة المرور غير صحيحة'));
