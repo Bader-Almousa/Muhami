@@ -1,10 +1,23 @@
 <?php
 include "config.php";
-$data = array();
-$q = mysqli_query($conn, "SELECT * FROM `user`");
-while ($row = mysqli_fetch_object($q)) {
-    $data[] = $row;
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $id = $_POST['id'];
+    $isLawyer = $_POST['isLawyer'];
+
+    if ($isLawyer == 'true') {
+        $sql = "SELECT * FROM lawyers WHERE id = $id";
+    } else {
+        $sql = "SELECT * FROM users WHERE id = $id";
+    }
+
+    $result = mysqli_query($conn, $sql);
+
+    if ($result) {
+        $row = mysqli_fetch_assoc($result);
+        echo json_encode(["status" => "success", "data" => $row]);
+    } else {
+        echo json_encode(["status" => "error", "message" => "حدث خطأ أثناء البحث عن المستخدم"]);
+    }
 }
-echo json_encode($data);
-echo mysqli_error($conn);
 ?>

@@ -1,27 +1,32 @@
 <?php
-// تلقي بيانات الدخول من تطبيق Ionic
-include "config.php";
-$input = file_get_contents('php://input');
-$_POST = json_decode($input, true);
+include_once 'database.php';
 
-$email = $_POST['email'];
-$password = $_POST['password'];
+$postdata = file_get_contents("php://input");
+$request = json_decode($postdata);
+$email = $request->email;
+$password = $request->password;
 
+$db = new Database();
+$conn = $db->connect();
 
+$query = "SELECT * FROM users WHERE email = ? AND password = ?";
+$stmt = $conn->prepare($query);
+$stmt->bind_param('ss', $email, $password);
+$stmt->execute();
+$result = $stmt->get_result();
+$user = $result->fetch_assoc();
 
-// استعلام SQL للتحقق من صحة بيانات الدخول
-$sql = "SELECT * FROM `users` WHERE `email` = '$email' AND `password` = '$password'";
-$result = $conn->query($sql);
-
-// إذا تم العثور على سجل مستخدم في قاعدة البيانات، فهذا يعني أن بيانات الدخول صحيحة
-if ($result->num_rows > 0) {
-    // إرجاع استجابة ناجحة إلى تطبيق Ionic
-    http_response_code(201);
-    $message['status'] = "Success";
+if ($user) {
+    echo json_encode(array(
+        'success' => true,
+        'message' => 'تم تسجيل الدخول بنجاح',
+        'firstName' => $user['firstName'],
+        'lastName' => $user['lastName'],
+        'phoneNumber' => $user['phoneNumber']
+    ));
 } else {
-    // إرجاع استجابة فاشلة إلى تطبيق Ionic
-    http_response_code(422);
-    $message['status'] = "Error";
+    echo json_encode(array('success' => false, 'message' => 'البريد الإلكتروني أو كلمة المرور غير صحيحة'));
 }
 
+$conn->close();
 ?>

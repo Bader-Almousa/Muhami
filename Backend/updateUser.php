@@ -1,24 +1,28 @@
 <?php
-
 include "config.php";
-$input = file_get_contents('php://input');
-$data = json_decode($input, true);
-$message = array();
 
-$FirstName = $data['FirstName'];
-$LastName = $data['LastName'];
-$Email = $data['Email'];
-$Password = $data['Password'];
-$Id = $_GET['Id'];
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $id = $_POST['id'];
+    $firstName = $_POST['firstName'];
+    $lastName = $_POST['lastName'];
+    $phoneNumber = $_POST['phoneNumber'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $isLawyer = $_POST['isLawyer'];
 
-$q = mysqli_query($con, "UPDATE `user` SET  (`FirstName`,`LastName`,`Email`,`Password`) VALUES ('$FirstName','$LastName','$Email','$Password') WHERE `Id` = '{$Id}' LIMIT 1");
+    if ($isLawyer == 'true') {
+        $license = $_POST['license'];
+        $sql = "UPDATE lawyers SET firstName = '$firstName', lastName = '$lastName', phoneNumber = '$phoneNumber', email = '$email', password = '$password', license = '$license' WHERE id = '$id'";
+    } else {
+        $sql = "UPDATE users SET firstName = '$firstName', lastName ='$lastName', phoneNumber = '$phoneNumber', email = '$email', password = '$password' WHERE id = '$id'";
+    }
 
-if($q){
-    $message['status'] = "Success";
-}else{
-    http_response_code(422);
-    $message['status'] = "Error";
+    $result = mysqli_query($conn, $sql);
+
+    if ($result) {
+        echo json_encode(["status" => "success", "message" => "تم تحديث المعلومات الشخصية بنجاح"]);
+    } else {
+        echo json_encode(["status" => "error", "message" => "حدث خطأ أثناء تحديث المعلومات الشخصية"]);
+    }
 }
-
-echo json_encode($message);
-echo mysqli_error($con);
+?>

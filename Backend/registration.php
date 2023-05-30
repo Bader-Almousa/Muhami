@@ -1,6 +1,9 @@
 <?php
 
-include "config.php";
+include "database.php";
+
+$db = new Database();
+$conn = $db->connect();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $firstName = $_POST['firstName'];

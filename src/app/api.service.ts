@@ -9,9 +9,7 @@ import { map } from 'rxjs/operators';
 export class ApiService {
 
   headers: HttpHeaders;
-
-  private baseUrl = 'http://localhost/Projects/Muhami/Backend/login.php'; // تغيير عنوان URL إلى عنوان موقع PHP الخاص بك
-
+  
   constructor(public http: HttpClient) {
 
     this.headers = new HttpHeaders();
@@ -20,14 +18,6 @@ export class ApiService {
     this.headers.append('Access-Control-Allow-Origin', '*');
     this.headers.append('Content-Type', 'text/plain; charset=utf-8');
    }
-
-  addUser(data: any){
-    return this.http.post('http://localhost/Projects/Muhami/Backend/create.php',data);
-  }
-
-  addLawer(data: any){
-    return this.http.post('http://localhost/Projects/Muhami/Backend/createLawyer.php',data);
-  }
 
   login(logininfo: any ){
     return this.http.post('http://localhost/Projects/Muhami/Backend/login.php',logininfo);

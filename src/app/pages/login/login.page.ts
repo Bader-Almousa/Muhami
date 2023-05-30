@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from 'src/app/api.service';
-import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { TabsPage } from '../tabs/tabs.page';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -10,29 +8,36 @@ import { TabsPage } from '../tabs/tabs.page';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
+  info = {
+    email: '',
+    password: ''
+  };
 
-  email: any;
-  password: any;
+  constructor(
+    private router: Router,
+    private http: HttpClient
+  ) { }
 
-  constructor(public _apiService: ApiService, private router: Router) {}
+  ngOnInit() {}
 
   login() {
-
-    let logininfo = {
-      email: this.email,
-      password: this.password
-    }
-
-    this._apiService.login(logininfo)
-    .subscribe({
-      next: (res) => console.log(res),
-      error: (err) => console.log(err),
-      complete: () => this.router.navigate(['/tabs/home'])
-    });
+    this.http.post('http://localhost/Projects/Muhami/Backend/login.php', this.info).subscribe(
+      (response: any) => {
+        if (response.success) {
+          // Handle successful login
+          console.log(response.message);
+          localStorage.setItem('firstName', response.firstName);
+          localStorage.setItem('lastName', response.lastName);
+          localStorage.setItem('phoneNumber', response.phoneNumber);
+          this.router.navigate(['/tabs/home']);
+        } else {
+          // Handle unsuccessful login
+          console.log(response.message);
+        }
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
-
-
-    ngOnInit() {
-    }
-  
 }
