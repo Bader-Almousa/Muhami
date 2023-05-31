@@ -3,26 +3,18 @@
     <ion-icon routerLink="/notifications" class="icon" name="notifications" size="large"  ></ion-icon>
     <ion-img class="center-logo" src=".\assets\img\FinallogoGold.png"  horizontal="center" vertical="center"></ion-img>
   </div>
-
   <ion-row class="ion-margin-horizontal ion-margin-top">
     <b class="Font_theme first-b">مرحبا بك في محامي</b>
-    <p class="Font_theme first-advisory">ما هو نوع استشارتك القانونية <br><b class="second-advisory">التي تود طلبها؟</b></p>
-    
-     
-    
+    <p class="Font_theme first-advisory">ما هو نوع استشارتك القانونية <br><b class="second-advisory">التي تود طلبها؟</b></p> 
   </ion-row>
-  
-  <ion-icon class="center-icon"  name="caret-down-sharp"></ion-icon>
-  
-    
+  <ion-icon class="center-icon"  name="caret-down-sharp"></ion-icon>  
 </ion-header>
 
-<ion-content  class="background" >
-  
-  
- 
 
-  
-<app-home-ui></app-home-ui>
-  
+
+
+
+<ion-content class="background">
+  <app-home-li *ngIf="isLawyer"></app-home-li>
+  <app-home-ui *ngIf="!isLawyer"></app-home-ui>
 </ion-content>
