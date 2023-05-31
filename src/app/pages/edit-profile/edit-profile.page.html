@@ -10,10 +10,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
-  <app-profile-li></app-profile-li>
-
-  <!-- <app-profile-ui></app-profile-ui> -->
-
+<ion-content class="background">
+  <app-profile-li *ngIf="isLawyer"></app-profile-li>
+  <app-profile-ui *ngIf="!isLawyer"></app-profile-ui>
 </ion-content>

@@ -8,13 +8,14 @@ import { AlertController, NavController } from '@ionic/angular';
   styleUrls: ['./edit-profile.page.scss'],
 })
 export class EditProfilePage implements OnInit {
-
+  isLawyer: any;
   constructor(
 
   ) {}
 
   ngOnInit() {
-    
+    const isLawyer = localStorage.getItem('isLawyer');
+    this.isLawyer = isLawyer === 'true';
   }
 
 }
