@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar dir="rtl">
+    <ion-buttons slot="start">
+      <ion-back-button mode="md" icon="chevron-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-row class="ion-margin-horizontal ion-margin-top">
+      <b class="Font_theme">صفحة الدفع</b>
+    </ion-row>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content dir="rtl" class="ion-padding  Font_theme" fullscreen>
+  <div class="content-container">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12" size-md="8" offset-md="2">
+          <div class="payment-header">
+            <h2>تفاصيل الدفع</h2>
+          </div>
+          <div class="payment-icons">
+            <img src="../assets/img/visa-logo.png" alt="Visa">
+            <img src="../assets/img/mastercard-logo.png" alt="Mastercard">
+            <img src="../assets/img/amex-logo.png" alt="American Express">
+            <img src="../assets/img/mada-logo.png" alt="Mada">
+          </div>
+          <ion-item lines="none">
+            <ion-label class="Font_theme" position="stacked">رقم البطاقة:</ion-label>
+            <ion-input class="Font_theme" type="text" inputmode="numeric" maxlength="16" minlength="16"></ion-input>
+          </ion-item>
+
+          <ion-row class="ion-align-items-center">
+            <ion-col size="8">
+              <ion-item lines="none">
+                <ion-label class="Font_theme" position="stacked">تاريخ الانتهاء:</ion-label>
+                <ion-input class="Font_theme" type="text" inputmode="numeric" maxlength="4" minlength="4" placeholder="مثال: 1123"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size="4">
+              <ion-item lines="none">
+                <ion-label class="Font_theme" position="stacked">رمز الأمان (CVV):</ion-label>
+                <ion-input class="Font_theme" type="text" inputmode="numeric" maxlength="3" minlength="3"></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+
+          <ion-item lines="none">
+            <ion-label class="Font_theme" position="stacked">اسم صاحب البطاقة:</ion-label>
+            <ion-input class="Font_theme" type="text"></ion-input>
+          </ion-item>
+
+          <ion-button expand="block" type="submit" color="warning">ادفع الآن</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

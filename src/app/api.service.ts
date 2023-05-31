@@ -3,24 +3,48 @@ import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
+export interface Lawyer {
+  id: number;
+  name: string;
+  image: string;
+  specialization: string;
+  type: string;
+  consultationFee: number;
+  description: string;
+  academicDegree: string;
+  academicMajor: string;
+  experience: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
-  headers: HttpHeaders;
-  
-  constructor(public http: HttpClient) {
+  private lawyers: Lawyer[] = [
+    {
+      id: 1,
+      name: 'أحمد علي',
+      image: 'assets/images/ahmed_ali.jpg',
+      specialization: 'تجاري',
+      type: 'محامي',
+      consultationFee: 150,
+      description: 'محامي متخصص في القضايا التجارية والعقود الدولية',
+      academicDegree: 'دكتوراه',
+      academicMajor: 'القانون التجاري',
+      experience: '15 سنة',
+    },
+    // يمكنك إضافة المزيد من المحامين هنا
+  ];
 
-    this.headers = new HttpHeaders();
-    this.headers.append('Accept', 'application/json');
-    this.headers.append('Content-Type', 'application/json');
-    this.headers.append('Access-Control-Allow-Origin', '*');
-    this.headers.append('Content-Type', 'text/plain; charset=utf-8');
-   }
+  constructor() { }
 
-  login(logininfo: any ){
-    return this.http.post('http://localhost/Projects/Muhami/Backend/login.php',logininfo);
+  getAllLawyers() {
+    return [...this.lawyers];
   }
 
+  getLawyer(id: number) {
+    return { ...this.lawyers.find(lawyer => lawyer.id === id) };
+  }
+    
 }

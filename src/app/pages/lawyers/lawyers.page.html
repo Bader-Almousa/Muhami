@@ -1,28 +1,28 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>المحامين</ion-title>
+<ion-header dir="rtl">
+  <ion-toolbar dir="rtl">
+    <ion-buttons slot="start">
+      <ion-back-button mode="md" icon="chevron-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-row class="ion-margin-horizontal ion-margin-top">
+      <b class="Font_theme">المحامين</b>
+    </ion-row>
+    
   </ion-toolbar>
+  <ion-searchbar class="Font_theme" [(ngModel)]="searchTerm" (ionChange)="filterItems()" placeholder=" ابحث عن محامي"></ion-searchbar>
 </ion-header>
 
-<ion-content>
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>إضافة محامي</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-item>
-        <ion-label position="floating">اسم المحامي</ion-label>
-        <ion-input [(ngModel)]="lawyer.name"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="floating">تخصص المحامي</ion-label>
-        <ion-input [(ngModel)]="lawyer.specialization"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label>صورة المحامي</ion-label>
-        <ion-input type="file" (change)="onImageChange($event)"></ion-input>
-      </ion-item>
-      <ion-button expand="full" (click)="addLawyer()">إضافة المحامي</ion-button>
-    </ion-card-content>
-  </ion-card>
+<ion-content dir="rtl">
+  <ion-list class="Font_theme">
+    <ion-item  *ngFor="let lawyer of filteredLawyers" (click)="viewLawyerDetails(lawyer)" class="lawyer-item Font_theme">
+      <ion-avatar slot="start" class="lawyer-avatar">
+        <img [src]="lawyer.image" />
+      </ion-avatar>
+      <ion-label class="Font_theme">
+        <h2 class="lawyer-name">{{ lawyer.name }}</h2>
+        <p class="lawyer-specialty">التخصص : {{ lawyer.specialty }}</p>
+        <p class="lawyer-type">النوع : {{ lawyer.type }}</p>
+      </ion-label>
+      <ion-button routerLink="/advisory" color="" slot="end" (click)="navigateToPaymentPage(lawyer)" class="payment-button">الأتعاب : {{ lawyer.payment }} ريال</ion-button>
+    </ion-item>
+  </ion-list>
 </ion-content>

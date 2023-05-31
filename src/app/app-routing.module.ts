@@ -54,6 +54,14 @@ const routes: Routes = [
     path: 'edit-profile',
     loadChildren: () => import('./pages/edit-profile/edit-profile.module').then( m => m.EditProfilePageModule)
   },
+  {
+    path: 'payment',
+    loadChildren: () => import('./pages/payment/payment.module').then( m => m.PaymentPageModule)
+  },
+  {
+    path: 'advisory',
+    loadChildren: () => import('./pages/advisory/advisory.module').then( m => m.AdvisoryPageModule)
+  },
 
 ];
 

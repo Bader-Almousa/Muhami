@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar dir="rtl">
+    <ion-buttons slot="start">
+      <ion-back-button mode="md" icon="chevron-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-row class="ion-margin-horizontal ion-margin-top">
+      <b class="Font_theme">طلب استشارة قانونية</b>
+    </ion-row>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content dir="rtl" class="ion-padding" fullscreen>
+  <div class="content-container">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12" size-md="8" offset-md="2">
+          <ion-item lines="none">
+            <ion-label class="Font_theme" position="stacked">عنوان الاستشارة:</ion-label>
+            <ion-input class="Font_theme" type="text"></ion-input>
+          </ion-item>
+          
+
+          <ion-item lines="none">
+            <ion-label class="Font_theme" position="stacked">نوع الاستشارة:</ion-label>
+            <ion-input class="Font_theme" type="text"></ion-input>
+          </ion-item>
+
+
+          <ion-item lines="none">
+            <ion-label class="Font_theme" position="stacked">محتوى الاستشارة:</ion-label>
+            <ion-textarea class="Font_theme" rows="10"></ion-textarea>
+          </ion-item>
+          
+          <ion-button expand="block" type="submit" (click)="navigateToPayment()">ادفع الآن</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

@@ -1,0 +1,103 @@
+
+.Font_theme{
+    font-family: 'MuhamiApp_Font';
+  }
+  
+  b{
+    margin-top: 12px;
+    margin-bottom: 15px;
+    font-size: 30px;
+  }
+
+  @import '~@ionic/angular/css/core.css';
+  :host {
+    ion-header {
+      --toolbar-background: rgba(255, 255, 255, 0.8);
+      --border-width: 0;
+      backdrop-filter: blur(5px);
+    }
+  
+    ion-content {
+      --background: white;
+    }
+  
+    .content-container {
+      background-color: white;
+      padding: 1rem;
+      border-radius: 1rem;
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 30rem;
+      margin: auto;
+    }
+  
+    .payment-header {
+      text-align: center;
+      margin-bottom: 1rem;
+      h2 {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+    }
+  
+    .payment-icons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      img {
+        width: auto;
+        height: 1.5rem;
+      }
+    }
+  
+    ion-grid {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    ion-item {
+      --padding-start: 0;
+      --padding-end: 0;
+      --inner-padding-start: 0;
+      --inner-padding-end: 0;
+      --inner-border-width: 0;
+      --border-width: 0;
+      margin-bottom: 1rem;
+     ion-label {
+      font-size: 1rem;
+      font-weight: bold;
+    }
+  
+    ion-input {
+      --padding-start: 0;
+      --padding-end: 0;
+      --background: transparent;
+      --border-color: rgba(0, 0, 0, 0.2);
+      --border-width: 0 0 1px 0;
+      --placeholder-color: rgba(0, 0, 0, 0.4);
+      --placeholder-opacity: 1;
+      background-color:#dfdfdfcd;
+      border-radius: 5px;
+      
+    }
+  
+    ion-button {
+        --background: #d0a51a;
+        --background-hover: #d0a51a;
+      --box-shadow: none;
+      --border-radius: 0.5rem;
+      --padding-start: 2rem;
+      --padding-end: 2rem;
+      --color: white;
+      font-size: 1rem;
+      font-weight: bold;
+      margin-top: 1rem;
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    }
+}}
+
+ 

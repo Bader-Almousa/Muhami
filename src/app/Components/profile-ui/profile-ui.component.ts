@@ -14,7 +14,8 @@ export class ProfileUiComponent  implements OnInit {
     firstName: '',
     lastName: '',
     phoneNumber: '',
-    email: ''
+    email: '',
+    imageUrl: 'https://docs-demo.ionic.io/assets/madison.jpg'
   };
 
   isChecked: any;
@@ -22,6 +23,25 @@ export class ProfileUiComponent  implements OnInit {
   
 
   constructor(private loadingCtrl: LoadingController) {}
+
+
+
+  updateProfilePicture(event: Event) {
+    const fileInput = event.target as HTMLInputElement;
+    if (fileInput.files && fileInput.files[0]) {
+      const fileReader = new FileReader();
+      fileReader.onload = (e: ProgressEvent<FileReader>) => {
+        if (e.target) {
+          this.user.imageUrl = e.target.result as string;
+        }
+      };
+      fileReader.readAsDataURL(fileInput.files[0]);
+    }
+  }
+
+ 
+
+
 
   async showLoading() {
     const loading = await this.loadingCtrl.create({
