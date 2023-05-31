@@ -40,6 +40,7 @@ if ($user) {
 } elseif ($lawyer) {
     echo json_encode(array(
         'success' => true,
+        'isLawyer' => true,
         'message' => 'تم تسجيل الدخول بنجاح كمحامي',
         'id' => $lawyer['id'],
         'firstName' => $lawyer['firstName'],
@@ -47,7 +48,10 @@ if ($user) {
         'phoneNumber' => $lawyer['phoneNumber'],
         'email' => $lawyer['email'],
         'license' => $lawyer['license'],
-        'isLawyer' => true
+        'specialized' => $lawyer['specialized'],
+        'advisoryType' => $lawyer['advisoryType'],
+        'advisorPrice' => $lawyer['advisorPrice'],
+        'image' => $lawyer['image'],
    ));
 } else {
     echo json_encode(array('success' => false, 'message' => 'البريد الإلكتروني أو كلمة المرور غير صحيحة'));
