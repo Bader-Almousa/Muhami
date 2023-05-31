@@ -1,5 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { LoadingController } from '@ionic/angular';
+import { AlertController, LoadingController, NavController } from '@ionic/angular';
 
 
 @Component({
@@ -11,6 +12,7 @@ export class ProfileUiComponent  implements OnInit {
 
   
   user = {
+    id: '',
     firstName: '',
     lastName: '',
     phoneNumber: '',
@@ -22,8 +24,33 @@ export class ProfileUiComponent  implements OnInit {
   photo = '.\assets\img\FinallogoGold.png';
   
 
-  constructor(private loadingCtrl: LoadingController) {}
+  constructor(private loadingCtrl: LoadingController, private http: HttpClient, 
+    public alertController: AlertController, 
+    public navCtrl: NavController) {}
 
+    async showLoading() {
+
+    const formData = new FormData();
+      formData.append('id', this.user.id);
+      formData.append('firstName', this.user.firstName);
+      formData.append('lastName', this.user.lastName);
+      formData.append('phoneNumber', this.user.phoneNumber);
+      formData.append('email', this.user.email);
+
+    this.http.post('http://localhost/Projects/Muhami/Backend/updateInfo.php', formData).subscribe(
+      (response) => {
+        console.log(response);
+      },
+      (error) => {
+
+        // إنشاء وعرض رسالة تنبيه باستخدام اسم المستخدم
+        const alertMessage = 'شكرا ' + this.user.firstName + '، تم تحديث بياناتك بنجاح';
+        this.presentAlert(alertMessage);
+        console.log(error);
+      }
+    );
+
+<<<<<<< HEAD
 
 
   updateProfilePicture(event: Event) {
@@ -44,9 +71,11 @@ export class ProfileUiComponent  implements OnInit {
 
 
   async showLoading() {
+=======
+>>>>>>> a15ea5622d110e32f45947dcb12223302e58a4cc
     const loading = await this.loadingCtrl.create({
       message: 'جاري الحفظ',
-      duration: 1000,
+      duration: 1500,
       spinner: 'circles'
     });
 
@@ -54,14 +83,26 @@ export class ProfileUiComponent  implements OnInit {
   }
 
   ngOnInit() {
+    const id = localStorage.getItem('id');
     const firstName = localStorage.getItem('firstName');
     const lastName = localStorage.getItem('lastName');
     const phoneNumber = localStorage.getItem('phoneNumber');
     const email = localStorage.getItem('email');
-  
+
+    this.user.id = id ? id : '';
     this.user.firstName = firstName ? firstName : '';
     this.user.lastName = lastName ? lastName : '';
     this.user.phoneNumber = phoneNumber ? phoneNumber : '';
     this.user.email = email ? email : '';
+  }
+
+  async presentAlert(mess: any) {
+    setTimeout(async () => {
+      const alert = await this.alertController.create({
+        message: mess,
+        buttons: ['حسنًا'],
+      });
+      await alert.present();
+    }, 1650); // تأخير ظهور الـ Alert لمدة 5 ثواني
   }
 }

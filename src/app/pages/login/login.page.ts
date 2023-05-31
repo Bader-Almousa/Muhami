@@ -26,10 +26,12 @@ export class LoginPage implements OnInit {
         if (response.success) {
           // Handle successful login
           console.log(response.message);
+          localStorage.setItem('id', response.id);
           localStorage.setItem('firstName', response.firstName);
           localStorage.setItem('lastName', response.lastName);
           localStorage.setItem('phoneNumber', response.phoneNumber);
           localStorage.setItem('email', response.email);
+          localStorage.setItem('isLawyer', response.isLawyer);
           this.router.navigate(['/tabs/home']);
         } else {
           // Handle unsuccessful login
