@@ -49,7 +49,6 @@ if ($user) {
         'email' => $lawyer['email'],
         'license' => $lawyer['license'],
         'specialized' => $lawyer['specialized'],
-        'advisoryType' => $lawyer['advisoryType'],
         'advisorPrice' => $lawyer['advisorPrice'],
         'image' => $lawyer['image'],
    ));

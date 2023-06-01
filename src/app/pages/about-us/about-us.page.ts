@@ -7,22 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutUsPage implements OnInit {
 
-  user = {
-    firstName: '',
-    lastName: '',
-    phoneNumber: ''
-  };
 
   constructor() {}
 
   ngOnInit() {
-    const firstName = localStorage.getItem('firstName');
-    const lastName = localStorage.getItem('lastName');
-    const phoneNumber = localStorage.getItem('phoneNumber');
-  
-    this.user.firstName = firstName ? firstName : '';
-    this.user.lastName = lastName ? lastName : '';
-    this.user.phoneNumber = phoneNumber ? phoneNumber : '';
   }
 
 }
