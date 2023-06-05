@@ -7,9 +7,11 @@ import { HomeLIComponent } from './home-li/home-li.component';
 import { ProfileLiComponent } from './profile-li/profile-li.component';
 import { ProfileUiComponent } from './profile-ui/profile-ui.component';
 import { FormsModule } from '@angular/forms';
+import { RequestsLiComponent } from './requests-li/requests-li.component';
+import { RequestsUiComponent } from './requests-ui/requests-ui.component';
 @NgModule({
-  declarations: [ButtonComponent, HomeUIComponent, HomeLIComponent, ProfileLiComponent,ProfileUiComponent],
+  declarations: [ButtonComponent, HomeUIComponent, HomeLIComponent, ProfileLiComponent,ProfileUiComponent,RequestsLiComponent,RequestsUiComponent],
   imports: [CommonModule, IonicModule,FormsModule ],
-  exports: [ButtonComponent, HomeUIComponent, HomeLIComponent, ProfileLiComponent,ProfileUiComponent],
+  exports: [ButtonComponent, HomeUIComponent, HomeLIComponent, ProfileLiComponent,ProfileUiComponent,RequestsLiComponent,RequestsUiComponent],
 })
 export class SharedModule {}

@@ -1,5 +1,191 @@
-.Font_theme{
+.Font_theme {
     font-family: 'MuhamiApp_Font';
-}
+  }
+  
+  $primary-color: #56575d;
+  $secondary-color: #ff5a5a;
+  $border-color: #b3b3b3;
+  $background-color: #f4f6f9;
+  
+  body,
+  ion-content {
+    background-color: $background-color;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+  }
+  
+  .profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 32px;
+    width: 100%;
+    max-width: 500px;
+  }
+  
+  .edit-button-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 8px;
+    
+  }
+  
+  .profile-image-container {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid $primary-color;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+  
+  .profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .profile-name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    @extend .Font_theme;
+  }
+  
+  .profile-name i {
+    font-size: 16px;
+    color: $secondary-color;
+    margin-right: 8px;
+  }
+  
+  .profile-spec,
+  .profile-consultation {
+    font-size: 18px;
+    margin-bottom: 4px;
+    color: #666;
+    @extend .Font_theme;
+  }
+  
+  .statistics {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 32px;
+  }
+  
+  .statistics-title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 24px;
+    color: $primary-color;
+    @extend .Font_theme;
+  }
+  
+  .stat-row {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+  }
+  
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 120px;
+    margin-bottom: 16px;
+  }
+  
+  .stat-item ion-icon {
+    font-size: 36px;
+    margin-bottom: 8px;
+    color: $primary-color;
+  }
+  
+  .stat-item h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 4px;
+    @extend .Font_theme;
+  }
+  
+  .stat-item p {
+    font-size: 16px;
+    color: #666;
+    @extend .Font_theme;
+  }
+  
+  .average-response-time {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 8px;
+    @extend .Font_theme;
+  }
+  
+  ion-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .profile-image-container::before {
+    content: '';
+    position: absolute;
+    top: -16px;
+    right: -16px;
+    width: 50px;
+    height: 50px;
+    background-color: $secondary-color;
+    border-radius: 50%;
+    z-index: -1;
+    opacity: 0.3;
+  }
+  
+  .profile-image-container::after {
+    content: '';
+    position: absolute;
+    bottom: -16px;
+    left: -16px;
+    width: 50px;
+    height: 50px;
+    background-color: $primary-color;
+    border-radius: 50%;
+    z-index: -1;
+    opacity: 0.3;
+  }
+  
+  .profile-image-container:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+  }
+  
+  .stat-item:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
+  }
 
-
+ 

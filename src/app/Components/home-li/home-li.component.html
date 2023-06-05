@@ -1,6 +1,43 @@
-
-<ion-row class="ion-margin-horizontal ion-margin-top">
-    <b class="Font_theme">مرحبا المحامي بدر</b>
-  </ion-row>
-
-  
+<ion-content>
+  <div class="container">
+    <div class="profile">
+      <div class="edit-button-container">
+        <ion-button expand="block" color="warning"  shape="round" size="small" routerLink=".. /pages/edit-profile">
+          <ion-icon name="pencil-outline"></ion-icon>
+        </ion-button>
+      </div>
+      <div class="profile-image-container">
+        <img class="profile-image" src="{{ lawyer.profileImage }}" alt="Profile image" />
+      </div>
+      <div class="profile-name">
+        <i class="fas fa-heart" aria-hidden="true"></i>
+        {{ lawyer.name }}
+      </div>
+      <div class="profile-spec">{{ lawyer.specialization }}</div>
+      <div class="profile-consultation">{{ lawyer.consultation }}</div>
+    </div>
+    <div class="statistics">
+      <h2 class="statistics-title">إحصائيات</h2>
+      <div class="stat-row">
+        <div class="stat-item">
+          <ion-icon name="people-outline"></ion-icon>
+          <h3>{{ lawyer.clients }}</h3>
+          <p>عملاء</p>
+        </div>
+        <div class="stat-item">
+          <ion-icon name="briefcase-outline"></ion-icon>
+          <h3>{{ lawyer.cases }}</h3>
+          <p>قضايا</p>
+        </div>
+        <div class="stat-item">
+          <ion-icon name="ribbon-outline"></ion-icon>
+          <h3>{{ lawyer.awards }}</h3>
+          <p>جوائز</p>
+        </div>
+      </div>
+      <div class="average-response-time">
+        متوسط وقت الاستجابة: {{ lawyer.responseTime }} ساعة
+      </div>
+    </div>
+  </div>
+</ion-content>
