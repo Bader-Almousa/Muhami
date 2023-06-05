@@ -13,17 +13,14 @@ export class ProfileUiComponent  implements OnInit {
   
   user = {
     id: '',
+    imageUrl: 'https://docs-demo.ionic.io/assets/madison.jpg',
     firstName: '',
     lastName: '',
     phoneNumber: '',
     email: '',
-    imageUrl: 'https://docs-demo.ionic.io/assets/madison.jpg'
   };
 
-
-  photo = '.\assets\img\FinallogoGold.png';
   
-
   constructor(private loadingCtrl: LoadingController, private http: HttpClient, 
     public alertController: AlertController, 
     public navCtrl: NavController) {}
