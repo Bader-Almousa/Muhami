@@ -8,6 +8,16 @@ import { Component, OnInit } from '@angular/core';
 export class HomeLIComponent  implements OnInit {
 
 
+  lawyer = {
+    name: 'أحمد محمد',
+    specialization: 'محامي تجاري',
+    consultation: 'استشارات قانونية مجانية',
+    profileImage: '',
+    clients: 50,
+    cases: 120,
+    awards: 10,
+    responseTime: 2,
+  };
 
   
   constructor() { }

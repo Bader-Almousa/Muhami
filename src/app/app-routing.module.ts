@@ -62,6 +62,10 @@ const routes: Routes = [
     path: 'advisory',
     loadChildren: () => import('./pages/advisory/advisory.module').then( m => m.AdvisoryPageModule)
   },
+  {
+    path: 'advisory-details',
+    loadChildren: () => import('./pages/advisory-details/advisory-details.module').then( m => m.AdvisoryDetailsPageModule)
+  },
 
 ];
 

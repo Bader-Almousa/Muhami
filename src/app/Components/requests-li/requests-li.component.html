@@ -1,0 +1,74 @@
+<ion-segment class="Font_theme" [(ngModel)]="segment">
+  <ion-segment-button value="waiting">
+    انتظار
+  </ion-segment-button>
+  <ion-segment-button value="active">
+    نشطة
+  </ion-segment-button>
+  <ion-segment-button value="finished">
+    منتهية
+  </ion-segment-button>
+</ion-segment>
+
+<ng-container *ngIf="segment === 'waiting'">
+  <ion-list class="Font_theme">
+    <ion-item *ngFor="let order of waitingOrders">
+      <ion-label class="Font_theme">
+        <h2>{{ order.sender }}</h2>
+        <p>{{ order.date | date: 'short' }}</p>
+        <p>{{ order.type }}</p>
+      </ion-label>
+      <ion-buttons slot="end">
+        <ion-button class="Font_theme" color="primary" (click)="showContent(order)">
+          <ion-icon name="eye"></ion-icon>
+        </ion-button>
+        <ion-button class="Font_theme" color="success" (click)="acceptOrder(order)">
+          <ion-icon name="checkmark"></ion-icon>
+        </ion-button>
+        <ion-button class="Font_theme" color="danger" (click)="rejectOrder(order)">
+          <ion-icon name="close"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+</ng-container>
+
+<ng-container *ngIf="segment === 'active'">
+  <ion-list class="Font_theme">
+    <ion-item *ngFor="let order of activeOrders">
+      <ion-label class="Font_theme">
+        <h2>{{ order.sender }}</h2>
+        <p>{{ order.date | date: 'short' }}</p>
+        <p>{{ order.type }}</p>
+      </ion-label>
+      <ion-buttons slot="end">
+        <!-- استبدل النص "رد" بأيقونة -->
+        <ion-button class="Font_theme" color="primary" (click)="showReplyBox(order)">
+          <ion-icon name="chatbubble-outline"></ion-icon>
+        </ion-button>
+        
+        <!-- استبدل النص "إنهاء" بأيقونة -->
+        <ion-button class="Font_theme" color="primary" (click)="finishOrder(order)">
+          <ion-icon name="checkmark-done-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+</ng-container>
+
+<ng-container *ngIf="segment === 'finished'">
+  <ion-list class="Font_theme">
+    <ion-item *ngFor="let order of finishedOrders">
+      <ion-label class="Font_theme">
+        <h2>{{ order.sender }}</h2>
+        <p>{{ order.date | date: 'short' }}</p>
+        <p>{{ order.type }}</p>
+      </ion-label>
+      <ion-buttons slot="end">
+        <ion-button class="Font_theme" color="medium" disabled>
+          منتهية
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+</ng-container>
