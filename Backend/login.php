@@ -29,13 +29,13 @@ $lawyer = $lawyer_result->fetch_assoc();
 if ($user) {
     echo json_encode(array(
         'success' => true,
+        'isLawyer' => false,
         'message' => 'تم تسجيل الدخول بنجاح كمستخدم',
         'id' => $user['id'],
         'firstName' => $user['firstName'],
         'lastName' => $user['lastName'],
         'phoneNumber' => $user['phoneNumber'],
         'email' => $user['email'],
-        'isLawyer' => false
     ));
 } elseif ($lawyer) {
     echo json_encode(array(
@@ -49,8 +49,8 @@ if ($user) {
         'email' => $lawyer['email'],
         'license' => $lawyer['license'],
         'specialized' => $lawyer['specialized'],
+        'path' => $lawyer['path'],
         'advisorPrice' => $lawyer['advisorPrice'],
-        'image' => $lawyer['image'],
    ));
 } else {
     echo json_encode(array('success' => false, 'message' => 'البريد الإلكتروني أو كلمة المرور غير صحيحة'));

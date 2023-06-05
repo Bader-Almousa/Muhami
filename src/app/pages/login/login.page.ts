@@ -33,6 +33,7 @@ export class LoginPage implements OnInit {
           localStorage.setItem('email', response.email);
           localStorage.setItem('license', response.license);
           localStorage.setItem('specialized', response.specialized);
+          localStorage.setItem('path', response.path);
           localStorage.setItem('advisorPrice', response.advisorPrice);
           localStorage.setItem('image', response.image);
           localStorage.setItem('isLawyer', response.isLawyer);

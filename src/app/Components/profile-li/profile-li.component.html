@@ -1,103 +1,107 @@
-<ion-avatar class="center-logo">
-  <ion-img class="circular-image "
-src="https://docs-demo.ionic.io/assets/madison.jpg"
-alt="The Wisconsin State Capitol building in Madison, WI at night">
-</ion-img>
-</ion-avatar>
+<br>
+
+<!-- <div class="image-container" (click)="fileInput.click()">
+  <ion-avatar class="center-logo">
+    <ion-img class="circular-image" [src]="user.image" alt="The Wisconsin State Capitol building in Madison, WI at night">
+    </ion-img>
+  </ion-avatar>
+  <ion-icon class="camera-icon" name="camera"></ion-icon>
+</div>
+
+<input #fileInput type="file" accept="image/*" (change)="updateProfilePicture($event)" style="display: none;"> -->
+
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br> 
+  <br>
 
 
 <div class="Font_theme" dir="rtl">
 
   <br>
 
+  <!-- لا تنسى يا بدر تحط ngModel في الادخال، وبعد لا تنسى مشكلة استرجاع الصور من الداتا بيس -->
   <div class="inputBox">
     <ion-label>الاسم الاول</ion-label>
-    <ion-input ></ion-input>
+    <ion-input [(ngModel)] = "user.firstName"></ion-input>
   </div>
+
+  <br>
 
   <div class="inputBox">
     <ion-label>الاسم الأخير</ion-label>
-    <ion-input ></ion-input>
+    <ion-input [(ngModel)] = "user.lastName"></ion-input>
   </div>
+
+  <br>
 
   <div class="inputBox">
     <ion-label>رقم الجوال</ion-label>
-    <ion-input ></ion-input>
+    <ion-input [(ngModel)] = "user.phoneNumber"></ion-input>
   </div>
+
+  <br>
 
   <div class="inputBox">
     <ion-label>البريد الإلكتروني</ion-label>
-    <ion-input></ion-input>
+    <ion-input [(ngModel)] = "user.email"></ion-input>
   </div>
 
-
-  
+  <br>
 
   <div class="inputBox" >
     <ion-label>رقم ترخيص مزاولة مهنة المحاماة</ion-label>
-    <ion-input ></ion-input>
-  </div> 
+    <ion-input [(ngModel)] = "user.license"></ion-input>
+  </div>
 
+  <br>
 
-  
-
-  
-  <div class="option ">
-    
-      <ion-item >
-        <ion-select class="Font_theme" aria-label="التخصص الأكاديمي" interface="popover" placeholder="التخصص الأكاديمي">
+  <div class="option">
+        <ion-select [(ngModel)] = "user.specialized" class="Font_theme" aria-label="التخصص الأكاديمي" interface="popover" placeholder="التخصص الأكاديمي">
           <ion-select-option value="قانون">قانون</ion-select-option>
           <ion-select-option value="شريعة">شريعة</ion-select-option>
         </ion-select>
-      </ion-item>
-    
+  </div>
+  
+  <br>
+
+  <div class="option">
+      <ion-select [(ngModel)] = "user.path" class="Font_theme" aria-label="المسار القانونية" interface="popover" placeholder="المسار القانونية">
+        <ion-select-option value="تجاري">تجاري</ion-select-option>
+        <ion-select-option value="جنائي">جنائي</ion-select-option>
+        <ion-select-option value="عمالي">عمالي</ion-select-option>
+        <ion-select-option value="شخصية">شخصية</ion-select-option>
+        <ion-select-option value="حقوقي">حقوقي</ion-select-option>
+        <ion-select-option value="احتيال">احتيال</ion-select-option>
+        <ion-select-option value="شركات">شركات</ion-select-option>
+        <ion-select-option value="مروري">مروري</ion-select-option>
+        <ion-select-option value="عقاري">عقاري</ion-select-option>
+        <ion-select-option value="طبي">طبي</ion-select-option>
+        <ion-select-option value="ارث">ارث</ion-select-option>
+        <ion-select-option value="اداري">اداري</ion-select-option>
+      </ion-select>
   </div>
 
-
-
-  <div class="option ">
-    
-    <ion-item >
-      <ion-select class="Font_theme" aria-label="المسار القانونية" interface="popover" placeholder="المسار القانونية">
-        <ion-select-option value="قانون">تجاري</ion-select-option>
-        <ion-select-option value="شريعة">جنائي</ion-select-option>
-        <ion-select-option value="شريعة">عمالي</ion-select-option>
-        <ion-select-option value="شريعة">شخصي</ion-select-option>
-        <ion-select-option value="شريعة">حقوقي</ion-select-option>
-        <ion-select-option value="شريعة">احتيال</ion-select-option>
-        <ion-select-option value="شريعة">شركات</ion-select-option>
-        <ion-select-option value="شريعة">مروري</ion-select-option>
-        <ion-select-option value="شريعة">عقاري</ion-select-option>
-        <ion-select-option value="شريعة">طبي</ion-select-option>
-        <ion-select-option value="شريعة">ارث</ion-select-option>
-        <ion-select-option value="شريعة">اداري</ion-select-option>
-      </ion-select>
-    </ion-item>
-  
-</div>
-
-
-
-
+  <br>
 
   <div class="option ">
-    
-    <ion-item >
-      <ion-select class="Font_theme" aria-label="الأتعاب المالية" interface="popover" placeholder="الأتعاب المالية">
+      <ion-select [(ngModel)] = "user.advisorPrice" class="Font_theme" aria-label="الأتعاب المالية" interface="popover" placeholder="الأتعاب المالية">
         <ion-select-option value="150">150</ion-select-option>
         <ion-select-option value="300">300</ion-select-option>
         <ion-select-option value="500">500</ion-select-option>
       </ion-select>
-    </ion-item>
-  
 </div>
   
- 
- 
 
   <br>
 
-  <app-button label="حفظ"></app-button>
+  <app-button label="حفظ" (click)="save()"></app-button>
 
 
   
