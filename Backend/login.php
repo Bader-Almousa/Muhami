@@ -36,6 +36,7 @@ if ($user) {
         'lastName' => $user['lastName'],
         'phoneNumber' => $user['phoneNumber'],
         'email' => $user['email'],
+        'image' => $user['image']
     ));
 } elseif ($lawyer) {
     echo json_encode(array(

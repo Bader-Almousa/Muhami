@@ -13,7 +13,7 @@ export class ProfileUiComponent  implements OnInit {
   
   user = {
     id: '',
-    imageUrl: 'https://docs-demo.ionic.io/assets/madison.jpg',
+    image: '',
     firstName: '',
     lastName: '',
     phoneNumber: '',
@@ -27,12 +27,14 @@ export class ProfileUiComponent  implements OnInit {
 
     ngOnInit() {
       const id = localStorage.getItem('id');
+      const image = localStorage.getItem('image');
       const firstName = localStorage.getItem('firstName');
       const lastName = localStorage.getItem('lastName');
       const phoneNumber = localStorage.getItem('phoneNumber');
       const email = localStorage.getItem('email');
   
       this.user.id = id ? id : '';
+      this.user.image = image ? image : '';
       this.user.firstName = firstName ? firstName : '';
       this.user.lastName = lastName ? lastName : '';
       this.user.phoneNumber = phoneNumber ? phoneNumber : '';
@@ -60,6 +62,7 @@ export class ProfileUiComponent  implements OnInit {
 
     const formData = new FormData();
       formData.append('id', this.user.id);
+      formData.append('image', this.user.image);
       formData.append('firstName', this.user.firstName);
       formData.append('lastName', this.user.lastName);
       formData.append('phoneNumber', this.user.phoneNumber);
@@ -84,7 +87,7 @@ export class ProfileUiComponent  implements OnInit {
       const fileReader = new FileReader();
       fileReader.onload = (e: ProgressEvent<FileReader>) => {
         if (e.target) {
-          this.user.imageUrl = e.target.result as string;
+          this.user.image = e.target.result as string;
         }
       };
       fileReader.readAsDataURL(fileInput.files[0]);
