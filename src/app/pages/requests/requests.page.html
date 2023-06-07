@@ -5,6 +5,6 @@
 </ion-header>
 
 <ion-content class="Font_theme">
-  <app-requests-li></app-requests-li>
-  <!-- <app-requests-ui></app-requests-ui> -->
+  <app-requests-li *ngIf="isLawyer"></app-requests-li>
+  <app-requests-ui *ngIf="!isLawyer"></app-requests-ui>
 </ion-content>

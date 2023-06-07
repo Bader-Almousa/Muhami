@@ -48,6 +48,7 @@ export class LoginPage implements OnInit {
           localStorage.setItem('phoneNumber', response.phoneNumber);
           localStorage.setItem('email', response.email);
           localStorage.setItem('image', response.image);
+          localStorage.setItem('lawyers', response.lawyers);
           localStorage.setItem('isLawyer', response.isLawyer);
           this.router.navigate(['/tabs/home']);
         }

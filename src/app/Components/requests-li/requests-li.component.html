@@ -12,11 +12,11 @@
 
 <ng-container *ngIf="segment === 'waiting'">
   <ion-list class="Font_theme">
-    <ion-item *ngFor="let order of waitingOrders">
+    <ion-item *ngFor="let order of requests">
       <ion-label class="Font_theme">
-        <h2>{{ order.sender }}</h2>
+        <h2>{{ order.userName }}</h2>
         <p>{{ order.date | date: 'short' }}</p>
-        <p>{{ order.type }}</p>
+        <p>{{ order.advisoryType }}</p>
       </ion-label>
       <ion-buttons slot="end">
         <ion-button class="Font_theme" color="primary" (click)="showContent(order)">
@@ -37,9 +37,9 @@
   <ion-list class="Font_theme">
     <ion-item *ngFor="let order of activeOrders">
       <ion-label class="Font_theme">
-        <h2>{{ order.sender }}</h2>
+        <h2>{{ order.userName }}</h2>
         <p>{{ order.date | date: 'short' }}</p>
-        <p>{{ order.type }}</p>
+        <p>{{ order.advisoryType }}</p>
       </ion-label>
       <ion-buttons slot="end">
         <!-- استبدل النص "رد" بأيقونة -->
@@ -60,9 +60,9 @@
   <ion-list class="Font_theme">
     <ion-item *ngFor="let order of finishedOrders">
       <ion-label class="Font_theme">
-        <h2>{{ order.sender }}</h2>
+        <h2>{{ order.userName }}</h2>
         <p>{{ order.date | date: 'short' }}</p>
-        <p>{{ order.type }}</p>
+        <p>{{ order.advisoryType }}</p>
       </ion-label>
       <ion-buttons slot="end">
         <ion-button class="Font_theme" color="medium" disabled>

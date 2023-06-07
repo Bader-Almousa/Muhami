@@ -8,8 +8,11 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['./requests.page.scss'],
 })
 export class RequestsPage implements OnInit {
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
+  isLawyer: any;
+  
+  ngOnInit(){
+    const isLawyer = localStorage.getItem('isLawyer');
+    this.isLawyer = isLawyer === 'true';
   }
   
 }

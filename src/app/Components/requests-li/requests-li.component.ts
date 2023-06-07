@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { HttpClient } from '@angular/common/http';
+import { AlertController, NavController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-requests-li',
@@ -8,57 +10,67 @@ import { AlertController } from '@ionic/angular';
 })
 export class RequestsLiComponent  implements OnInit {
 
-  ngOnInit() {}
+  requests: any[] = [];
+  id: any;
+
+  
+  ngOnInit() {
+    this.fetchRequests();
+  }
 
   segment: string = 'waiting';
-  waitingOrders = [
-    {
-      id: 1,
-      sender: 'أحمد',
-      date: new Date(),
-      type: 'نوع الطلب 1',
-      content: 'هلا والله',
-    },
-    {
-      id: 2,
-      sender: 'محمد',
-      date: new Date(),
-      type: 'نوع الطلب 2',
-    },
-  ];
+
   activeOrders: any[] = [];
   finishedOrders: any[] = [];
 
-  constructor(private alertController: AlertController) {}
+  constructor(private http: HttpClient, 
+    public alertController: AlertController, 
+    public navCtrl: NavController) {}
 
-  acceptOrder(order: { id: number }) {
-    const index = this.waitingOrders.findIndex((o) => o.id === order.id);
-    if (index !== -1) {
-      this.waitingOrders.splice(index, 1);
-      this.activeOrders.push(order);
+    fetchRequests() {
+        const lawyerId = localStorage.getItem('id');
+        this.http.get<any[]>(`http://localhost/Projects/Muhami/Backend/showLawyerRequests.php?lawyerID=${lawyerId}`).subscribe((data: any[]) => {
+        this.requests = data.filter(request => request.advisoryStatus === 'waiting');
+        this.activeOrders = data.filter(request => request.advisoryStatus === 'active');
+        this.finishedOrders = data.filter(request => request.advisoryStatus === 'finished');
+      });
     }
-  }
+
+    async acceptOrder(order: any) {
+      const result = await this.http.post('http://localhost/Projects/Muhami/Backend/updateAdvisoryStatus.php', {
+        advisoryID: order.advisoryID,
+        advisoryStatus: 'active'
+      }).toPromise();
+  
+      if (result) {
+        this.fetchRequests();
+      }
+    }
 
   rejectOrder(order: { id: number }) {
-    const index = this.waitingOrders.findIndex((o) => o.id === order.id);
+    const index = this.requests.findIndex((o) => o.id === order.id);
     if (index !== -1) {
-      this.waitingOrders.splice(index, 1);
+      this.requests.splice(index, 1);
       this.finishedOrders.push(order);
     }
   }
 
-  finishOrder(order: { id: number }) {
-    const index = this.activeOrders.findIndex((o) => o.id === order.id);
-    if (index !== -1) {
-      this.activeOrders.splice(index, 1);
-      this.finishedOrders.push(order);
+  async finishOrder(order: any) {
+    const result = await this.http.post('http://localhost/Projects/Muhami/Backend/updateAdvisoryStatus.php', {
+      advisoryID: order.advisoryID,
+      advisoryStatus: 'finished',
+      advisoryAnswer: order.response
+    }).toPromise();
+
+    if (result) {
+      this.fetchRequests();
     }
   }
 
   async showContent(order: any) {
     const alert = await this.alertController.create({
-      header: 'محتوى الاستشارة',
-      message: order.content,
+      header: 'محتوى الإستشارة',
+      message: order.advisoryContent,
       buttons: ['موافق'],
       cssClass: 'alert-custom-font', // إضافة cssClass هنا
     });
@@ -83,9 +95,9 @@ export class RequestsLiComponent  implements OnInit {
         },
         {
           text: 'إنهاء',
-          handler: (data) => {
+          handler: async (data) => {
             order.response = data.response;
-            this.finishOrder(order);
+            await this.finishOrder(order);
           },
         },
       ],

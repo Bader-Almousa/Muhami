@@ -36,7 +36,7 @@ if ($user) {
         'lastName' => $user['lastName'],
         'phoneNumber' => $user['phoneNumber'],
         'email' => $user['email'],
-        'image' => $user['image']
+        'image' => $user['image'],
     ));
 } elseif ($lawyer) {
     echo json_encode(array(
@@ -51,7 +51,7 @@ if ($user) {
         'license' => $lawyer['license'],
         'specialized' => $lawyer['specialized'],
         'path' => $lawyer['path'],
-        'advisorPrice' => $lawyer['advisorPrice'],
+        'advisoryPrice' => $lawyer['advisoryPrice'],
    ));
 } else {
     echo json_encode(array('success' => false, 'message' => 'البريد الإلكتروني أو كلمة المرور غير صحيحة'));
