@@ -52,6 +52,7 @@ if ($user) {
         'specialized' => $lawyer['specialized'],
         'path' => $lawyer['path'],
         'advisoryPrice' => $lawyer['advisoryPrice'],
+        'image' => $lawyer['image'],
    ));
 } else {
     echo json_encode(array('success' => false, 'message' => 'البريد الإلكتروني أو كلمة المرور غير صحيحة'));

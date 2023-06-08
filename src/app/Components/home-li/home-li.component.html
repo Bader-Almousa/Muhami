@@ -7,16 +7,16 @@
         </ion-button>
       </div>
       <div class="profile-image-container">
-        <img class="profile-image" src="{{ lawyer.profileImage }}" alt="Profile image" />
+        <img class="profile-image" [src]="lawyer.image" alt="Profile image" />
       </div>
       <div class="profile-name">
         <i class="fas fa-heart" aria-hidden="true"></i>
-        {{ lawyer.name }}
+        {{ lawyer.firstName }} {{ lawyer.lastName }}
       </div>
-      <div class="profile-spec">{{ lawyer.specialization }}</div>
-      <div class="profile-consultation">{{ lawyer.consultation }}</div>
+      <div class="profile-spec">{{ lawyer.specialized }}</div>
+      <div class="profile-consultation">{{ lawyer.path }}</div>
     </div>
-    <div class="statistics">
+    <!-- <div class="statistics">
       <h2 class="statistics-title">إحصائيات</h2>
       <div class="stat-row">
         <div class="stat-item">
@@ -38,6 +38,6 @@
       <div class="average-response-time">
         متوسط وقت الاستجابة: {{ lawyer.responseTime }} ساعة
       </div>
-    </div>
+    </div> -->
   </div>
 </ion-content>
