@@ -34,7 +34,7 @@ export class LoginPage implements OnInit {
           localStorage.setItem('license', response.license);
           localStorage.setItem('specialized', response.specialized);
           localStorage.setItem('path', response.path);
-          localStorage.setItem('advisorPrice', response.advisorPrice);
+          localStorage.setItem('advisoryPrice', response.advisoryPrice);
           localStorage.setItem('image', response.image);
           localStorage.setItem('isLawyer', response.isLawyer);
           this.router.navigate(['/tabs/home']);

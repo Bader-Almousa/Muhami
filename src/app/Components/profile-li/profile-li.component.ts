@@ -19,7 +19,7 @@ export class ProfileLiComponent  implements OnInit {
     license: '',
     specialized: '',
     path: '',
-    advisorPrice: '',
+    advisoryPrice: '',
   };
   
   constructor(private loadingCtrl: LoadingController, private http: HttpClient, 
@@ -36,7 +36,7 @@ export class ProfileLiComponent  implements OnInit {
       const license = localStorage.getItem('license');
       const specialized = localStorage.getItem('specialized');
       const path = localStorage.getItem('path');
-      const advisorPrice = localStorage.getItem('advisorPrice');
+      const advisoryPrice = localStorage.getItem('advisoryPrice');
   
       this.user.id = id ? id : '';
       this.user.image = image ? image : '';
@@ -47,7 +47,7 @@ export class ProfileLiComponent  implements OnInit {
       this.user.license = license ? license : '';
       this.user.specialized = specialized ? specialized : '';
       this.user.path = path ? path : '';
-      this.user.advisorPrice = advisorPrice ? advisorPrice : '';
+      this.user.advisoryPrice = advisoryPrice ? advisoryPrice : '';
     }
   
     async presentAlert(mess: any) {
@@ -79,7 +79,7 @@ export class ProfileLiComponent  implements OnInit {
       formData.append('license', this.user.license);
       formData.append('specialized', this.user.specialized);
       formData.append('path', this.user.path);
-      formData.append('advisorPrice', this.user.advisorPrice);
+      formData.append('advisoryPrice', this.user.advisoryPrice);
 
     this.http.post('http://localhost/Projects/Muhami/Backend/updateLawyerInfo.php', formData).subscribe(
       (response) => {
