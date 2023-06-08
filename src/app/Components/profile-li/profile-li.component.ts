@@ -94,17 +94,17 @@ export class ProfileLiComponent  implements OnInit {
     );
     }
 
-  // updateProfilePicture(event: Event) {
-  //   const fileInput = event.target as HTMLInputElement;
-  //   if (fileInput.files && fileInput.files[0]) {
-  //     const fileReader = new FileReader();
-  //     fileReader.onload = (e: ProgressEvent<FileReader>) => {
-  //       if (e.target) {
-  //         this.user.image = e.target.result as string;
-  //       }
-  //     };
-  //     fileReader.readAsDataURL(fileInput.files[0]);
-  //   }
-  // }
+  updateProfilePicture(event: Event) {
+    const fileInput = event.target as HTMLInputElement;
+    if (fileInput.files && fileInput.files[0]) {
+      const fileReader = new FileReader();
+      fileReader.onload = (e: ProgressEvent<FileReader>) => {
+        if (e.target) {
+          this.user.image = e.target.result as string;
+        }
+      };
+      fileReader.readAsDataURL(fileInput.files[0]);
+    }
+  }
 
 }
