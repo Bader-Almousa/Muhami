@@ -37,6 +37,7 @@ if ($user) {
         'lastName' => $user['lastName'],
         'phoneNumber' => $user['phoneNumber'],
         'email' => $user['email'],
+        'password'=> $user['password'],
         'image' => $user['image'],
     ));
 } elseif ($lawyer) {
@@ -49,6 +50,7 @@ if ($user) {
         'lastName' => $lawyer['lastName'],
         'phoneNumber' => $lawyer['phoneNumber'],
         'email' => $lawyer['email'],
+        'password'=> $lawyer['password'],
         'license' => $lawyer['license'],
         'specialized' => $lawyer['specialized'],
         'path' => $lawyer['path'],

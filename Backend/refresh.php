@@ -1,61 +1,54 @@
 <?php
-
-// تضمين ملف قاعدة البيانات
+// تضمين ملف الاتصال بقاعدة البيانات
 include_once 'database.php';
 
-// جلب قيم المتغيرات من نموذج POST
-$isLawyer = $_POST['isLawyer'];
-$id = $_POST['id'];
+// قراءة البيانات الواردة
+$isLawyer = filter_var($_GET['isLawyer'], FILTER_VALIDATE_BOOLEAN);
+$id = intval($_GET['id']);
 
-// إنشاء اتصال جديد بقاعدة البيانات
+// إنشاء كائن قاعدة البيانات والاتصال بها
 $db = new Database();
 $conn = $db->connect();
 
-// التحقق مما إذا كان البريد الإلكتروني وكلمة المرور موجودين في جدول المحامين أو المستخدمين
+// التحقق مما إذا كان المستخدم محاميًا
 if ($isLawyer == true) {
-    $query = "SELECT * FROM lawyers WHERE id = $id";
-    $result = $conn->query($query);
-    if ($result->num_rows > 0) {
-        $lawyer = $result->fetch_assoc();
-        echo json_encode(array(
-            'success' => true,
-            'message' => 'تم تحديث بيانات المحامي بنجاح',
-            'firstName' => $lawyer['firstName'],
-            'lastName' => $lawyer['lastName'],
-            'phoneNumber' => $lawyer['phoneNumber'],
-            'email' => $lawyer['email'],
-            'license' => $lawyer['license'],
-            'specialized' => $lawyer['specialized'],
-            'path' => $lawyer['path'],
-            'advisoryPrice' => $lawyer['advisoryPrice'],
-            'image' => $lawyer['image'],
-        ));
-    } else {
-        echo json_encode(array(
-            'success' => false,
-            'message' => 'حدث خطأ اثناء تحديث بيانات المحامي ',
-        ));
+    // إعداد استعلام قاعدة البيانات للمحامين
+    $query = "SELECT id, firstName, lastName, specialized, path, advisoryPrice, image FROM lawyers WHERE id = $id";
+    $stmt = $conn->prepare($query);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    $lawyers = array();
+
+    // جلب النتائج وتخزينها في مصفوفة
+    while ($row = $result->fetch_assoc()) {
+        if (!empty($row['image'])) {
+            $imageData = base64_encode($row['image']);
+            $row['image'] = $imageData;
+        }
+        array_push($lawyers, $row);
     }
-} else {
-    $query = "SELECT * FROM users WHERE id = $id";
-    $result = $conn->query($query);
-    if ($result->num_rows > 0) {
-        $user = $result->fetch_assoc();
-        echo json_encode(array(
-            'success' => true,
-            'message' => 'تم تحديث بيانات المحامي المستخدم',
-            'firstName' => $user['firstName'],
-            'lastName' => $user['lastName'],
-            'phoneNumber' => $user['phoneNumber'],
-            'email' => $user['email'],
-            'image' => $user['image'],
-        ));
-    } else {
-        echo json_encode(array(
-            'success' => false,
-            'message' => 'حدث خطأ اثناء تحديث بيانات المستخدم ',
-        ));
+    // إرسال النتائج ك JSON
+    echo json_encode($lawyers);
+} else if($isLawyer == false){
+    // إعداد استعلام قاعدة البيانات للمستخدمين
+    $query = "SELECT id, firstName, lastName, phoneNumber, email, image FROM users";
+    $stmt = $conn->prepare($query);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    $users = array();
+
+    // جلب النتائج وتخزينها في مصفوفة
+    while ($row = $result->fetch_assoc()) {
+        if (!empty($row['image'])) {
+            $imageData = base64_encode($row['image']);
+            $row['image'] = $imageData;
+        }
+        array_push($users, $row);
     }
+    // إرسال النتائج ك JSON
+    echo json_encode($users);
 }
 
 // إغلاق الاتصال بقاعدة البيانات

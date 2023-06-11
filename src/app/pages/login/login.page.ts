@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -16,21 +15,12 @@ export class LoginPage implements OnInit {
 
   constructor(
     private router: Router,
-    private http: HttpClient,
-    private loadingCtrl: LoadingController
+    private http: HttpClient
   ) { }
 
   ngOnInit() {}
 
-  async login() {
-
-    const loading = await this.loadingCtrl.create({
-      message: 'جاري الحفظ',
-      duration: 3000,
-      spinner: 'circles'
-    });
-    loading.present();
-
+  login() {
     this.http.post('http://localhost/Projects/Muhami/Backend/login.php', this.info).subscribe(
       (response: any) => {
         if (response.success && response.isLawyer) {
@@ -41,6 +31,7 @@ export class LoginPage implements OnInit {
           localStorage.setItem('lastName', response.lastName);
           localStorage.setItem('phoneNumber', response.phoneNumber);
           localStorage.setItem('email', response.email);
+          localStorage.setItem('password', response.password);
           localStorage.setItem('license', response.license);
           localStorage.setItem('specialized', response.specialized);
           localStorage.setItem('path', response.path);
@@ -57,6 +48,7 @@ export class LoginPage implements OnInit {
           localStorage.setItem('lastName', response.lastName);
           localStorage.setItem('phoneNumber', response.phoneNumber);
           localStorage.setItem('email', response.email);
+          localStorage.setItem('password', response.password);
           localStorage.setItem('image', response.image);
           localStorage.setItem('lawyers', response.lawyers);
           localStorage.setItem('isLawyer', response.isLawyer);

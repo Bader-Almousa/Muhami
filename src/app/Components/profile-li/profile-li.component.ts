@@ -16,6 +16,7 @@ export class ProfileLiComponent  implements OnInit {
     lastName: '',
     phoneNumber: '',
     email: '',
+    password: '',
     license: '',
     specialized: '',
     path: '',
@@ -33,6 +34,7 @@ export class ProfileLiComponent  implements OnInit {
       const lastName = localStorage.getItem('lastName');
       const phoneNumber = localStorage.getItem('phoneNumber');
       const email = localStorage.getItem('email');
+      const password = localStorage.getItem('password');
       const license = localStorage.getItem('license');
       const specialized = localStorage.getItem('specialized');
       const path = localStorage.getItem('path');
@@ -44,6 +46,7 @@ export class ProfileLiComponent  implements OnInit {
       this.user.lastName = lastName ? lastName : '';
       this.user.phoneNumber = phoneNumber ? phoneNumber : '';
       this.user.email = email ? email : '';
+      this.user.password = password ? password : '';
       this.user.license = license ? license : '';
       this.user.specialized = specialized ? specialized : '';
       this.user.path = path ? path : '';
@@ -89,6 +92,43 @@ export class ProfileLiComponent  implements OnInit {
         // إنشاء وعرض رسالة تنبيه باستخدام اسم المستخدم
         const alertMessage = 'شكرا ' + this.user.firstName + '، تم تحديث بياناتك بنجاح';
         this.presentAlert(alertMessage);
+        console.log(error);
+      }
+    );
+    this.http.post('http://localhost/Projects/Muhami/Backend/login.php', this.user).subscribe(
+      (response: any) => {
+        if (response.success && response.isLawyer) {
+          // Handle successful lawyer login
+          console.log(response.message);
+          localStorage.setItem('id', response.id);
+          localStorage.setItem('firstName', response.firstName);
+          localStorage.setItem('lastName', response.lastName);
+          localStorage.setItem('phoneNumber', response.phoneNumber);
+          localStorage.setItem('email', response.email);
+          localStorage.setItem('license', response.license);
+          localStorage.setItem('specialized', response.specialized);
+          localStorage.setItem('path', response.path);
+          localStorage.setItem('advisoryPrice', response.advisoryPrice);
+          localStorage.setItem('image', response.image);
+          localStorage.setItem('isLawyer', response.isLawyer);
+        } 
+        else if(response.success && response.isLawyer == false) {
+          // Handle successful user login
+          console.log(response.message);
+          localStorage.setItem('id', response.id);
+          localStorage.setItem('firstName', response.firstName);
+          localStorage.setItem('lastName', response.lastName);
+          localStorage.setItem('phoneNumber', response.phoneNumber);
+          localStorage.setItem('email', response.email);
+          localStorage.setItem('image', response.image);
+          localStorage.setItem('lawyers', response.lawyers);
+        }
+        else{
+          // Handle unsuccessful login
+          console.log(response.message);
+        }
+      },
+      (error) => {
         console.log(error);
       }
     );
