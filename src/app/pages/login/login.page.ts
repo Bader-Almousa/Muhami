@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -15,12 +16,21 @@ export class LoginPage implements OnInit {
 
   constructor(
     private router: Router,
-    private http: HttpClient
+    private http: HttpClient,
+    private loadingCtrl: LoadingController
   ) { }
 
   ngOnInit() {}
 
-  login() {
+  async login() {
+
+    const loading = await this.loadingCtrl.create({
+      message: 'جاري الحفظ',
+      duration: 3000,
+      spinner: 'circles'
+    });
+    loading.present();
+
     this.http.post('http://localhost/Projects/Muhami/Backend/login.php', this.info).subscribe(
       (response: any) => {
         if (response.success && response.isLawyer) {
