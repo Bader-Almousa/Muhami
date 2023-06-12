@@ -18,30 +18,62 @@
 
     <br>
 
-    <div class="inputBox">
-      <ion-label>الاسم الاول</ion-label>
-      <ion-input [(ngModel)] ="info.firstName"></ion-input>
+    <!-- يحتوي على الإنبوت والتسمية -->
+    <div class="container">
+      <!-- التسمية (الاسم) فوق الإنبوت -->
+      <ion-label class="input-label">الاسم الأول</ion-label>
+      <ion-item lines="none" class="custom-input">
+        <!-- الإنبوت ذو الحواف الدائرية -->
+        <ion-input maxlength="10" type="text" [clearInput]="true" [(ngModel)] ="info.firstName"></ion-input>
+      </ion-item>
+    </div>
+    <br>
+
+    <!-- يحتوي على الإنبوت والتسمية -->
+    <div class="container">
+      <!-- التسمية (الاسم) فوق الإنبوت -->
+      <ion-label class="input-label">الاسم الاخير</ion-label>
+      <ion-item lines="none" class="custom-input">
+        <!-- الإنبوت ذو الحواف الدائرية -->
+        <ion-input maxlength="10" type="text" [clearInput]="true" [(ngModel)] ="info.lastName"></ion-input>
+      </ion-item>
+    </div>
+    <br>
+
+    <!-- يحتوي على الإنبوت والتسمية -->
+    <div class="container">
+      <!-- التسمية (الاسم) فوق الإنبوت -->
+      <ion-label class="input-label">رقم الجوال</ion-label>
+      <ion-item lines="none" class="custom-input">
+        <!-- الإنبوت ذو الحواف الدائرية -->
+        <ion-input maxlength="10" minlength="10" type="tel" placeholder="053-280-1400" [clearInput]="true" [(ngModel)] ="info.phoneNumber"></ion-input>
+      </ion-item>
+    </div>
+    <br>
+
+    <!-- يحتوي على الإنبوت والتسمية -->
+    <div class="container">
+      <!-- التسمية (الاسم) فوق الإنبوت -->
+      <ion-label class="input-label">البريد الإلكتروني</ion-label>
+      <ion-item lines="none" class="custom-input">
+        <!-- الإنبوت ذو الحواف الدائرية -->
+        <ion-input type="email" placeholder="Example@Example.com" [clearInput]="true" [(ngModel)] ="info.email"></ion-input>
+      </ion-item>
     </div>
 
-    <div class="inputBox">
-      <ion-label>الاسم الثاني</ion-label>
-      <ion-input [(ngModel)] ="info.lastName"></ion-input>
+    <br>
+
+    <!-- يحتوي على الإنبوت والتسمية -->
+    <div class="container">
+      <!-- التسمية (الاسم) فوق الإنبوت -->
+      <ion-label class="input-label">كلمة المرور</ion-label>
+      <ion-item lines="none" class="custom-input">
+        <!-- الإنبوت ذو الحواف الدائرية -->
+        <ion-input maxlength="20" minlength="8" type="password" [(ngModel)] ="info.password"></ion-input>
+      </ion-item>
     </div>
 
-    <div class="inputBox">
-      <ion-label>رقم الجوال</ion-label>
-      <ion-input [(ngModel)] ="info.phoneNumber"></ion-input>
-    </div>
-
-    <div class="inputBox">
-      <ion-label>البريد الإلكتروني</ion-label>
-      <ion-input [(ngModel)] ="info.email"></ion-input>
-    </div>
-
-    <div class="inputBox">
-      <ion-label>كلمة المرور</ion-label>
-      <ion-input [(ngModel)] ="info.password"></ion-input>
-    </div>
+    
 
     <div class="centercheck">
       <ion-checkbox class="checkdez" [(ngModel)]="isChecked"></ion-checkbox>
@@ -50,15 +82,22 @@
 
       <br>
 
-    <div class="inputBox" *ngIf="isChecked">
-      <ion-label>رقم ترخيص مزاولة مهنة المحاماة</ion-label>
-      <ion-input [(ngModel)] ="info.license"></ion-input>
-    </div>
+
+      <div class="container" *ngIf="isChecked">
+        <!-- التسمية (الاسم) فوق الإنبوت -->
+        <ion-label class="input-labelli">رقم ترخيص مزاولة المهنة </ion-label>
+        <ion-item lines="none" class="custom-input">
+          <!-- الإنبوت ذو الحواف الدائرية -->
+          <ion-input type="tel" maxlength="10" minlength="10" placeholder="1234567890" [(ngModel)] ="info.license"></ion-input>
+        </ion-item>
+      </div>
+
+    
     
     
     <br>
 
-    <app-button label="انشاء الحساب" (click)="register()"></app-button>
+    <app-button  label="انشاء الحساب" (click)="register()"></app-button>
 
     <br>
 

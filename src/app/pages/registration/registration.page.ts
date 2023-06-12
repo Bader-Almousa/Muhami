@@ -9,6 +9,8 @@ import { AlertController, NavController } from '@ionic/angular';
 })
 export class RegistrationPage implements OnInit {
 
+  
+
   info = {
   firstName: '',
   lastName: '',
@@ -17,7 +19,6 @@ export class RegistrationPage implements OnInit {
   password: '',
   license: ''
   }
-
   isChecked: any;
   
   constructor(private http: HttpClient, 
@@ -29,6 +30,8 @@ export class RegistrationPage implements OnInit {
       this.isChecked = false;
     }
   }
+
+  
 
   register(){
 
