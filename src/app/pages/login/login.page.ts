@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -19,8 +20,13 @@ export class LoginPage implements OnInit {
   ) { }
 
   ngOnInit() {}
+  
+  submit(form: NgForm) {
+    console.log(form.value);
+  }
 
   login() {
+      
     this.http.post('http://localhost/Projects/Muhami/Backend/login.php', this.info).subscribe(
       (response: any) => {
         if (response.success && response.isLawyer) {

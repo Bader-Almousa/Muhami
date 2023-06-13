@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AlertController, NavController } from '@ionic/angular';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-registration',
@@ -8,8 +9,6 @@ import { AlertController, NavController } from '@ionic/angular';
   styleUrls: ['./registration.page.scss'],
 })
 export class RegistrationPage implements OnInit {
-
-  
 
   info = {
   firstName: '',
@@ -19,6 +18,7 @@ export class RegistrationPage implements OnInit {
   password: '',
   license: ''
   }
+
   isChecked: any;
   
   constructor(private http: HttpClient, 
@@ -31,7 +31,6 @@ export class RegistrationPage implements OnInit {
     }
   }
 
-  
 
   register(){
 
@@ -48,11 +47,11 @@ export class RegistrationPage implements OnInit {
         console.log(response);
 
     // إنشاء وعرض رسالة تنبيه باستخدام اسم المستخدم
-    const alertMessage = 'هلا ' + this.info.firstName + ' احفظ حقك واعرف اللي لك وعليك واستشر استشاراتك القانونية الان';
+    const alertMessage = 'هلا ' + this.info.firstName + ' سجّل دخولك، واحفظ حقك واعرف اللي لك وعليك واستشر استشاراتك القانونية الان';
     this.presentAlert(alertMessage);
 
     // تحويل المستخدم إلى صفحة أخرى وتمرير الـ id المستخدم
-    this.navCtrl.navigateForward('/tabs/home');
+    this.navCtrl.navigateForward('/login');
       },
       (error) => {
         console.log(error);
@@ -71,6 +70,12 @@ export class RegistrationPage implements OnInit {
       this.http.post('http://localhost/Projects/Muhami/Backend/registration.php', formData).subscribe(
       (response) => {
         console.log(response);
+        // إنشاء وعرض رسالة تنبيه باستخدام اسم المستخدم
+      const alertMessage = 'هلا بالمحامي ' + this.info.firstName + ' سجّل دخولك وحدّث بياناتك وابدا على بركة الله شغلك';
+      this.presentAlert(alertMessage);
+
+      // تحويل المستخدم إلى صفحة أخرى وتمرير الـ id المستخدم
+      this.navCtrl.navigateForward('/login');
       },
       (error) => {
         console.log(error);

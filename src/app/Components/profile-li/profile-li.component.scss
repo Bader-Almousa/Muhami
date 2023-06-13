@@ -10,24 +10,79 @@ b{
 }
 
 
-.inputBox ion-label{
-    margin-right: 3rem;
-}
-
-.inputBox ion-input{
+/* تنسيق العنصر الأساسي لعرض الإنبوت والتسمية في المنتصف */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  /* تنسيق التسمية (الاسم) خارج حدود الإنبوت */
+  .input-label {
+    color: #000; /* لون الاسم باللون الأسود */
+    margin-bottom: 4px;
+    margin-left: 190px; /* تباعد بين الاسم والإنبوت */
+  }
+  .input-labelli{
+    color: #000; /* لون الاسم باللون الأسود */
+    margin-bottom: 4px;
+    margin-left: 90px; /* تباعد بين الاسم والإنبوت */
+  }
+  .error-label {
+    text-align: center;
+    align-items: center;
+    font-size: 12px;
+    color: #ff0000; /* لون الاسم باللون الأسود */
+    margin-bottom: 4px;
+    margin-top: 5px;
+    margin-left: 0px; /* تباعد بين الاسم والإنبوت */
+  }
+  .input-error {
+    --border-color: red;
+    --border-style: solid;
+    --border-width: 2px;
+  }
+  
+  /* تنسيق الإنبوت المخصص */
+  .custom-input {
+    --padding-start: 0;
+    --padding-end: 0;
+    --inner-padding-start: 12px;
+    --inner-padding-end: 12px;
+    --background: #ffffff;
+    --border-radius: 24px; /* حواف دائرية */
+    --border-color: #112549; /* حواف باللون الأسود */
+    --border-width: 2px; /* سمك الحواف */
+    --min-height: 30px; /* ارتفاع سخيف للإنبوت */
+    --color: #000; /* لون الخط الداخلي باللون الأسود */
+    width: 80%; /* عرض الإنبوت متوسط (50% من عرض الشاشة) */
+    transition: border-color 0.1s; /* تأثير انتقالي للحدود */
+  }
+  
+  /* تنسيق التسمية (الاسم) */
+  .custom-input ion-label {
+    --color: #000; /* لون الاسم باللون الأسود */
+  }
+  
+  /* تأثير التركيز على الإنبوت */
+  .custom-input:focus-within {
+    --border-color: #d8b050; /* لون الحواف يتغير عند التركيز */
+  }
+  
+  /* تنسيق الخط الداخلي للإنبوت */
+  .custom-input ion-input {
     font-family: 'MuhamiApp_Font';
-    width: 80%;
-    border: 2px solid #9e9e9e;
-    border-radius: 16px;
-    margin-right: 9%;
-    margin-top: 2%;
-    margin-bottom: 2%;
-}
-
-.inputBox ion-input:hover{
-    transition: .2s;
-    border: 2px solid #474747;
-}
+    font-size: 16px;
+    padding-top: 4px; /* تقليل التباعد العلوي */
+    padding-bottom: 4px; /* تقليل التباعد السفلي */
+  }
+  
+  /* تنسيق النص الوهمي للإنبوت */
+  .custom-input ion-input::placeholder {
+    color: #999;
+  }
 
 .createLawAcc{
     font-size: 12px;
@@ -50,8 +105,8 @@ b{
     font-family: 'MuhamiApp_Font';
     color: black;
     width: 80%;
-    border: 2px solid #9e9e9e;
-    border-radius: 16px;
+    border: 2px solid #112549;
+    border-radius: 24px;
     margin-right: 9%;
     margin-top: 2%;
     margin-bottom: 2%;
@@ -59,7 +114,7 @@ b{
 }
 .option:hover{
     transition: .2s;
-    border: 2px solid #474747;
+    border: 2px solid #d8b050;
 }
 
 

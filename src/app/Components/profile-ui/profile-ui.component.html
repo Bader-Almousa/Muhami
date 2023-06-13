@@ -31,24 +31,52 @@
   
 
   
-  <div class="inputBox">
-    <ion-label>الاسم الاول</ion-label>
-    <ion-input [(ngModel)]="user.firstName"></ion-input>
+  <div class="container">
+    <ion-label class="input-label">الاسم الأول</ion-label>
+    <ion-item lines="none" class="custom-input"
+      [class.invalid]="firstName.invalid && (firstName.dirty || firstName.touched)">
+      <ion-input maxlength="10" type="text" [clearInput]="true" [(ngModel)]="user.firstName" name="firstName"
+        #firstName="ngModel" required></ion-input>
+    </ion-item>
+    <div class="error-label" *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">*
+      الاسم الأول مطلوب
+    </div>
   </div>
-
-  <div class="inputBox">
-    <ion-label>الاسم الأخير</ion-label>
-    <ion-input [(ngModel)]="user.lastName"></ion-input>
+  <br>
+  <div class="container">
+    <ion-label class="input-label">الاسم الاخير</ion-label>
+    <ion-item lines="none" class="custom-input"
+      [class.invalid]="lastName.invalid && (lastName.dirty || lastName.touched)">
+      <ion-input maxlength="10" type="text" [clearInput]="true" [(ngModel)]="user.lastName" name="lastName"
+        #lastName="ngModel" required></ion-input>
+    </ion-item>
+    <div class="error-label" *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">*
+      الاسم الأخير مطلوب
+    </div>
   </div>
-
-  <div class="inputBox">
-    <ion-label>رقم الجوال</ion-label>
-    <ion-input [(ngModel)]="user.phoneNumber"></ion-input>
+  <br>
+  <div class="container">
+    <ion-label class="input-label">رقم الجوال</ion-label>
+    <ion-item lines="none" class="custom-input"
+      [class.invalid]="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)">
+      <ion-input maxlength="10" minlength="10" type="tel" placeholder="053-280-1400" [clearInput]="true"
+        [(ngModel)]="user.phoneNumber" name="phoneNumber" #phoneNumber="ngModel" required></ion-input>
+    </ion-item>
+    <div class="error-label" *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)">*
+      يجب ان يكون طول رقم الجوال 10 ارقام
+    </div>
   </div>
-
-  <div class="inputBox">
-    <ion-label>البريد الإلكتروني</ion-label>
-    <ion-input [(ngModel)]="user.email"></ion-input>
+  <br>
+  <div class="container">
+    <ion-label class="input-label">البريد الإلكتروني</ion-label>
+    <ion-item lines="none" class="custom-input"
+      [class.invalid]="email.invalid && (email.dirty || email.touched)">
+      <ion-input type="email" placeholder="Example@Example.com" [clearInput]="true" [(ngModel)]="user.email"
+        name="email" #email="ngModel" required></ion-input>
+    </ion-item>
+    <div class="error-label" *ngIf="email.invalid && (email.dirty || email.touched)">*
+      يجب إدخال بريد إلكتروني صحيح
+    </div>
   </div>
   
  

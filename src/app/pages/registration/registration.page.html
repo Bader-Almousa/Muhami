@@ -1,107 +1,105 @@
 <ion-header>
   <ion-toolbar class="Font_theme" dir="rtl">
-
     <ion-buttons slot="start">
       <ion-back-button icon="chevron-back-circle-outline"></ion-back-button>
     </ion-buttons>
-
     <ion-title>انشاء حساب</ion-title>
-
   </ion-toolbar>
 </ion-header>
 
-
-
 <ion-content>
-
   <div class="Font_theme" dir="rtl">
-
     <br>
 
-    <!-- يحتوي على الإنبوت والتسمية -->
     <div class="container">
-      <!-- التسمية (الاسم) فوق الإنبوت -->
       <ion-label class="input-label">الاسم الأول</ion-label>
-      <ion-item lines="none" class="custom-input">
-        <!-- الإنبوت ذو الحواف الدائرية -->
-        <ion-input maxlength="10" type="text" [clearInput]="true" [(ngModel)] ="info.firstName"></ion-input>
+      <ion-item lines="none" class="custom-input"
+        [class.invalid]="firstName.invalid && (firstName.dirty || firstName.touched)">
+        <ion-input maxlength="10" type="text" [clearInput]="true" [(ngModel)]="info.firstName" name="firstName"
+          #firstName="ngModel" required></ion-input>
       </ion-item>
+      <div class="error-label" *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">*
+        الاسم الأول مطلوب
+      </div>
     </div>
     <br>
 
-    <!-- يحتوي على الإنبوت والتسمية -->
     <div class="container">
-      <!-- التسمية (الاسم) فوق الإنبوت -->
       <ion-label class="input-label">الاسم الاخير</ion-label>
-      <ion-item lines="none" class="custom-input">
-        <!-- الإنبوت ذو الحواف الدائرية -->
-        <ion-input maxlength="10" type="text" [clearInput]="true" [(ngModel)] ="info.lastName"></ion-input>
+      <ion-item lines="none" class="custom-input"
+        [class.invalid]="lastName.invalid && (lastName.dirty || lastName.touched)">
+        <ion-input maxlength="10" type="text" [clearInput]="true" [(ngModel)]="info.lastName" name="lastName"
+          #lastName="ngModel" required></ion-input>
       </ion-item>
+      <div class="error-label" *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">*
+        الاسم الأخير مطلوب
+      </div>
     </div>
     <br>
 
-    <!-- يحتوي على الإنبوت والتسمية -->
     <div class="container">
-      <!-- التسمية (الاسم) فوق الإنبوت -->
       <ion-label class="input-label">رقم الجوال</ion-label>
-      <ion-item lines="none" class="custom-input">
-        <!-- الإنبوت ذو الحواف الدائرية -->
-        <ion-input maxlength="10" minlength="10" type="tel" placeholder="053-280-1400" [clearInput]="true" [(ngModel)] ="info.phoneNumber"></ion-input>
+      <ion-item lines="none" class="custom-input"
+        [class.invalid]="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)">
+        <ion-input maxlength="10" minlength="10" type="tel" placeholder="053-280-1400" [clearInput]="true"
+          [(ngModel)]="info.phoneNumber" name="phoneNumber" #phoneNumber="ngModel" required></ion-input>
       </ion-item>
+      <div class="error-label" *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)">*
+        يجب ان يكون طول رقم الجوال 10 ارقام
+      </div>
     </div>
     <br>
 
-    <!-- يحتوي على الإنبوت والتسمية -->
     <div class="container">
-      <!-- التسمية (الاسم) فوق الإنبوت -->
       <ion-label class="input-label">البريد الإلكتروني</ion-label>
-      <ion-item lines="none" class="custom-input">
-        <!-- الإنبوت ذو الحواف الدائرية -->
-        <ion-input type="email" placeholder="Example@Example.com" [clearInput]="true" [(ngModel)] ="info.email"></ion-input>
+      <ion-item lines="none" class="custom-input"
+        [class.invalid]="email.invalid && (email.dirty || email.touched)">
+        <ion-input type="email" placeholder="Example@Example.com" [clearInput]="true" [(ngModel)]="info.email"
+          name="email" #email="ngModel" required></ion-input>
       </ion-item>
+      <div class="error-label" *ngIf="email.invalid && (email.dirty || email.touched)">*
+        يجب إدخال بريد إلكتروني صحيح
+      </div>
     </div>
 
     <br>
 
-    <!-- يحتوي على الإنبوت والتسمية -->
     <div class="container">
-      <!-- التسمية (الاسم) فوق الإنبوت -->
       <ion-label class="input-label">كلمة المرور</ion-label>
-      <ion-item lines="none" class="custom-input">
-        <!-- الإنبوت ذو الحواف الدائرية -->
-        <ion-input maxlength="20" minlength="8" type="password" [(ngModel)] ="info.password"></ion-input>
+      <ion-item lines="none" class="custom-input"
+        [class.invalid]="password.invalid && (password.dirty || password.touched)">
+        <ion-input maxlength="20" minlength="8" type="password" [(ngModel)]="info.password" name="password"
+          #password="ngModel" required></ion-input>
       </ion-item>
+      <div class="error-label" *ngIf="password.invalid && (password.dirty || password.touched)">*
+        كلمة المرور مطلوبة ويجب أن تحتوي على 8-20 حرفًا
+      </div>
     </div>
-
-    
 
     <div class="centercheck">
       <ion-checkbox class="checkdez" [(ngModel)]="isChecked"></ion-checkbox>
       <ion-label class="createLawAcc">اضغط هنا للتسجيل كمحامي</ion-label>
-      </div>
-
-      <br>
-
-
-      <div class="container" *ngIf="isChecked">
-        <!-- التسمية (الاسم) فوق الإنبوت -->
-        <ion-label class="input-labelli">رقم ترخيص مزاولة المهنة </ion-label>
-        <ion-item lines="none" class="custom-input">
-          <!-- الإنبوت ذو الحواف الدائرية -->
-          <ion-input type="tel" maxlength="10" minlength="10" placeholder="1234567890" [(ngModel)] ="info.license"></ion-input>
-        </ion-item>
-      </div>
-
-    
-    
-    
-    <br>
-
-    <app-button  label="انشاء الحساب" (click)="register()"></app-button>
+    </div>
 
     <br>
 
-    
+    <div class="container" *ngIf="isChecked">
+      <ion-label class="input-labelli">رقم ترخيص مزاولة المهنة</ion-label>
+      <ion-item lines="none" class="custom-input"
+        [class.invalid]="license.invalid && (license.dirty || license.touched)">
+        <ion-input type="tel" maxlength="10" minlength="10" placeholder="1234567890" [(ngModel)]="info.license"
+          name="license" #license="ngModel"></ion-input>
+      </ion-item>
+      <ion-label class="error-label" *ngIf="license.invalid && (license.dirty || license.touched)">*
+        رقم ترخيص مزاولة المهنة مطلوب ويجب أن يكون 10 أرقام
+      </ion-label>
+    </div>
+
+    <br>
+
+    <app-button (click)="register()" label="انشاء الحساب"></app-button>
+
+    <br>
+
   </div>
-
 </ion-content>

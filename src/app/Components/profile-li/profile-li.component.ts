@@ -95,7 +95,8 @@ export class ProfileLiComponent  implements OnInit {
         console.log(error);
       }
     );
-    this.http.post('http://localhost/Projects/Muhami/Backend/login.php', this.user).subscribe(
+    setTimeout(() => {
+      this.http.post('http://localhost/Projects/Muhami/Backend/login.php', this.user).subscribe(
       (response: any) => {
         if (response.success && response.isLawyer) {
           // Handle successful lawyer login
@@ -121,7 +122,7 @@ export class ProfileLiComponent  implements OnInit {
           localStorage.setItem('phoneNumber', response.phoneNumber);
           localStorage.setItem('email', response.email);
           localStorage.setItem('image', response.image);
-          localStorage.setItem('lawyers', response.lawyers);
+          localStorage.setItem('isLawyer', response.isLawyer);
         }
         else{
           // Handle unsuccessful login
@@ -132,6 +133,7 @@ export class ProfileLiComponent  implements OnInit {
         console.log(error);
       }
     );
+  }, 2000);
     }
 
   updateProfilePicture(event: Event) {
