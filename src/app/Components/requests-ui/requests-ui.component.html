@@ -53,6 +53,9 @@
         <p>{{ order.advisoryType }}</p>
       </ion-label>
       <ion-buttons slot="end">
+        <ion-button class="Font_theme" color="primary" (click)="showContent(order)">
+          <ion-icon name="eye"></ion-icon>
+        </ion-button>
         <ion-button class="Font_theme" color="medium" disabled>
           منتهية
         </ion-button>

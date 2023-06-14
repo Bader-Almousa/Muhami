@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home-li',
@@ -17,8 +18,17 @@ export class HomeLIComponent  implements OnInit {
     path: '',
   };
 
+  handleRefresh(event: any) {
+    setTimeout(() => {
+      // Any calls to load data go here
+      event.target.complete();
+    }, 2000);
+  }
+  nav(){
+    this.navCtrl.navigateForward('/edit-profile');
+  }
   
-  constructor() { }
+  constructor(public navCtrl: NavController) { }
 
   ngOnInit() {
     const id = localStorage.getItem('id');

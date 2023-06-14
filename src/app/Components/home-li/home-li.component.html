@@ -1,8 +1,12 @@
 <ion-content>
+
   <div class="container">
     <div class="profile">
+      <br>
+      <br>
+      <br>
       <div class="edit-button-container">
-        <ion-button expand="block" color="warning"  shape="round" size="small" routerLink=".. /pages/edit-profile">
+        <ion-button expand="block" color="warning"  shape="round" size="small" (click)="nav()">
           <ion-icon name="pencil-outline"></ion-icon>
         </ion-button>
       </div>
@@ -15,6 +19,11 @@
       </div>
       <div class="profile-spec">{{ lawyer.specialized }}</div>
       <div class="profile-consultation">{{ lawyer.path }}</div>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
     </div>
     <!-- <div class="statistics">
       <h2 class="statistics-title">إحصائيات</h2>

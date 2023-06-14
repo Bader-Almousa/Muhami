@@ -10,8 +10,8 @@ export class HomeUIComponent  implements OnInit {
 
   constructor(private router: Router) { }
 
-  nav(){
-    this.router.navigate(['lawyers']);
+  nav(path: string){
+    this.router.navigate(['lawyers', {path: path}]);
   }
 
   ngOnInit() {}

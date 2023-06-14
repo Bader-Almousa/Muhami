@@ -34,4 +34,15 @@ export class RequestsUiComponent  implements OnInit {
         this.finishedOrders = data.filter(request => request.advisoryStatus === 'finished');
       });
     }
+
+    async showContent(order: any) {
+      const alert = await this.alertController.create({
+        header: 'رد الإستشارة',
+        message: order.advisoryAnswer,
+        buttons: ['موافق'],
+        cssClass: 'alert-custom-font', // إضافة cssClass هنا
+      });
+    
+      await alert.present();
+    }
 }

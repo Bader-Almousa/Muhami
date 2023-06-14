@@ -7,18 +7,30 @@ include_once 'database.php';
 $db = new Database();
 $conn = $db->connect();
 
-$lawyerId = $_GET['lawyerID'];
+$lawyerID = isset($_GET['lawyerID']) ? $_GET['lawyerID'] : die();
 
-$sql = "SELECT image FROM lawyers";
+$query = "SELECT advisoryinfo.advisoryID, advisoryinfo.userID, advisoryinfo.lawyerID, advisoryinfo.advisoryType, advisoryinfo.advisoryContent, advisoryinfo.advisoryStatus, users.firstName as userName FROM advisoryinfo INNER JOIN users ON advisoryinfo.userID = users.id WHERE advisoryinfo.lawyerID = ?";
+$stmt = $conn->prepare($query);
+$stmt->bind_param("i", $lawyerID);
+$stmt->execute();
+$result = $stmt->get_result();
 
-    // تنفيذ الاستعلام
-    $result = $conn->query($sql);
-
-    // جلب النتائج وتخزينها في مصفوفة
-    $images = $result->fetchAll(PDO::FETCH_ASSOC);
-
-    // إرسال النتائج كرد JSON
-    echo json_encode($images);
-
-$conn->close();
+if ($result->num_rows > 0) {
+    $requests = array();
+    while ($row = $result->fetch_assoc()) {
+        $request_item = array(
+            "advisoryID" => $row["advisoryID"],
+            "userName" => $row["userName"],
+            "advisoryType" => $row["advisoryType"],
+            "advisoryContent" => $row["advisoryContent"],
+            "advisoryStatus" => $row["advisoryStatus"]
+        );
+        array_push($requests, $request_item);
+    }
+    echo json_encode($requests);
+} else {
+    echo json_encode(
+        array("message" => "لا يوجد طلبات.")
+    );
+}
 ?>

@@ -9,7 +9,7 @@ $conn = $db->connect();
 
 $userId = $_GET['userID'];
 
-$sql = "SELECT advisoryinfo.advisoryID, advisoryinfo.userID, advisoryinfo.lawyerID, advisoryinfo.advisoryType, advisoryinfo.advisoryContent, advisoryinfo.advisoryStatus, lawyers.firstName as lawyerName FROM advisoryinfo INNER JOIN lawyers ON advisoryinfo.lawyerID = lawyers.id WHERE advisoryinfo.userID = $userId";
+$sql = "SELECT advisoryinfo.advisoryID, advisoryinfo.userID, advisoryinfo.lawyerID, advisoryinfo.advisoryType, advisoryinfo.advisoryContent, advisoryinfo.advisoryStatus, advisoryinfo.advisoryAnswer, lawyers.firstName as lawyerName FROM advisoryinfo INNER JOIN lawyers ON advisoryinfo.lawyerID = lawyers.id WHERE advisoryinfo.userID = $userId";
 
 $result = $conn->query($sql);
 

@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AlertController, NavController } from '@ionic/angular';
+import { ActivatedRoute } from '@angular/router';
+import { debounceTime } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-lawyers',
@@ -11,23 +14,36 @@ export class LawyersPage {
   lawyers: any[] = [];
   selectedLawyerId: any;
   id: any;
+  path: any;
+
+  private searchSubject = new Subject<string>();
 
   constructor(private http: HttpClient, 
     public alertController: AlertController, 
-    public navCtrl: NavController) { }
+    public navCtrl: NavController,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.path = this.route.snapshot.paramMap.get('path');
     this.fetchLawyers();
+
+    this.searchSubject
+    .pipe(debounceTime(300))
+    .subscribe((searchText) => this.fetchLawyers(searchText));
+
   }
 
-  dataURI(base64String: string) {
-    return 'data:image/png;base64,' + base64String;
+  searchLawyers(event: any) {
+    const searchText = event.target.value;
+    this.searchSubject.next(searchText);
   }
 
-  fetchLawyers() {
-    this.http.get<any[]>('http://localhost/Projects/Muhami/Backend/showLawyers.php').subscribe((data: any[]) => {
-  this.lawyers = data;
-});
+  fetchLawyers(searchText: string = '') {
+    this.http
+    .get<any[]>(`http://localhost/Projects/Muhami/Backend/showLawyers.php?path=${this.path}&search=${searchText}`)
+    .subscribe((data: any[]) => {
+      this.lawyers = data;
+    });
   }
 
   send(lawyerId: number) {

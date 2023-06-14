@@ -7,13 +7,16 @@
       <b class="Font_theme">المحامين</b>
     </ion-row>
   </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar class="Font_theme" placeholder="ابحث عن محامي" (ionChange)="searchLawyers($event)"></ion-searchbar>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content dir="rtl">
   <ion-list class="Font_theme">
     <ion-item *ngFor="let lawyer of lawyers" class="lawyer-item Font_theme">
       <ion-avatar slot="start" class="lawyer-avatar">
-        <ion-img [src]="dataURI(lawyer.image)" />
+        <ion-img [src]="lawyer.image" />
       </ion-avatar>
       <ion-label class="Font_theme">
         <h2 class="lawyer-name">{{lawyer.firstName}} {{lawyer.lastName}}</h2>
